@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js" defer></script>
+  <!-- motion.js removed — unused, GSAP handles all animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
@@ -269,8 +269,8 @@
       width: calc(100% - 48px) !important;
       border-radius: 60px;
       background: rgba(11,11,11,0.55) !important;
-      backdrop-filter: blur(30px) saturate(1.4) !important;
-      -webkit-backdrop-filter: blur(30px) saturate(1.4) !important;
+      backdrop-filter: blur(12px) saturate(1.2) !important;
+      -webkit-backdrop-filter: blur(12px) saturate(1.2) !important;
       border: 1px solid rgba(201,164,86,0.15) !important;
       padding: 0 32px;
       height: 56px;
@@ -458,8 +458,8 @@
     .def-about-badge {
       border: 1px solid rgba(201,164,86,0.3);
       border-top: 1px solid rgba(201,164,86,0.45);
-      backdrop-filter: blur(24px) saturate(1.3);
-      -webkit-backdrop-filter: blur(24px) saturate(1.3);
+      backdrop-filter: blur(10px) saturate(1.1);
+      -webkit-backdrop-filter: blur(10px) saturate(1.1);
       background: linear-gradient(145deg, rgba(201,164,86,0.06), rgba(11,11,11,0.6));
       box-shadow: 0 8px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,251,243,0.05);
     }
@@ -476,8 +476,8 @@
       border-top: 1px solid rgba(201,164,86,0.3);
       padding: 44px 36px;
       position: relative;
-      backdrop-filter: blur(20px) saturate(1.3);
-      -webkit-backdrop-filter: blur(20px) saturate(1.3);
+      backdrop-filter: blur(10px) saturate(1.1);
+      -webkit-backdrop-filter: blur(10px) saturate(1.1);
       box-shadow:
         0 4px 24px rgba(0,0,0,0.2),
         inset 0 1px 0 rgba(255,251,243,0.04),
@@ -521,8 +521,8 @@
       );
       border: 1px solid rgba(201,164,86,0.18);
       border-top: 1px solid rgba(201,164,86,0.28);
-      backdrop-filter: blur(20px) saturate(1.3);
-      -webkit-backdrop-filter: blur(20px) saturate(1.3);
+      backdrop-filter: blur(10px) saturate(1.1);
+      -webkit-backdrop-filter: blur(10px) saturate(1.1);
       box-shadow:
         0 4px 24px rgba(0,0,0,0.2),
         inset 0 1px 0 rgba(255,251,243,0.04),
@@ -556,10 +556,11 @@
       );
       border: 1px solid rgba(201,164,86,0.25);
       border-top: 1px solid rgba(201,164,86,0.4);
-      backdrop-filter: blur(32px) saturate(1.4);
-      -webkit-backdrop-filter: blur(32px) saturate(1.4);
+      backdrop-filter: blur(14px) saturate(1.2);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
       padding: 64px;
       max-width: 720px;
+      margin: 0 auto;
       box-shadow:
         0 12px 70px rgba(0,0,0,0.4),
         inset 0 1px 0 rgba(255,251,243,0.08),
@@ -625,7 +626,7 @@
     #features { background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
     #testimonials { background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
     /* FAQ section removed */
-    #contact { background: rgba(10,10,9,0.8) !important; backdrop-filter: blur(20px) saturate(1.3) !important; -webkit-backdrop-filter: blur(20px) saturate(1.3) !important; padding: 120px 5vw !important; }
+    #contact { background: rgba(10,10,9,0.8) !important; backdrop-filter: blur(10px) saturate(1.1) !important; -webkit-backdrop-filter: blur(10px) saturate(1.1) !important; padding: 120px 5vw !important; }
     #collections { background: rgba(11,11,11,0.5); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
     .lux-marquee { background: rgba(8,8,8,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     .lux-stats { background: rgba(9,9,9,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
@@ -928,7 +929,7 @@ i[data-lucide] svg{display:block}
 html { background: #080808 !important; }
 body { background: #080808 !important; }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
 <script data-draftly-register-plugins="1">
 (function waitForGsap(attempts) {
   if (attempts <= 0) return;
@@ -1100,8 +1101,8 @@ body { background: #080808 !important; }
         background: linear-gradient(160deg, rgba(201,164,86,0.06), rgba(20,18,14,0.5), rgba(201,164,86,0.03));
         border: 1px solid rgba(201,164,86,0.18);
         border-top: 1px solid rgba(201,164,86,0.3);
-        backdrop-filter: blur(20px) saturate(1.3);
-        -webkit-backdrop-filter: blur(20px) saturate(1.3);
+        backdrop-filter: blur(10px) saturate(1.1);
+        -webkit-backdrop-filter: blur(10px) saturate(1.1);
         box-shadow: 0 8px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,251,243,0.05);
         transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;
         cursor: pointer;
@@ -1733,12 +1734,18 @@ body { background: #080808 !important; }
       cx = e.clientX; cy = e.clientY;
       cursor.style.transform = 'translate(' + (cx - 6) + 'px,' + (cy - 6) + 'px)';
     }, { passive: true });
-    (function animateRing() {
+    var ringActive = false;
+    function animateRing() {
       rx += (cx - rx) * 0.1;
       ry += (cy - ry) * 0.1;
       ring.style.transform = 'translate(' + (rx - 22) + 'px,' + (ry - 22) + 'px)';
-      requestAnimationFrame(animateRing);
-    })();
+      if (Math.abs(cx - rx) > 0.5 || Math.abs(cy - ry) > 0.5) {
+        requestAnimationFrame(animateRing);
+      } else { ringActive = false; }
+    }
+    document.addEventListener('mousemove', function() {
+      if (!ringActive) { ringActive = true; requestAnimationFrame(animateRing); }
+    }, { passive: true });
     var hoverTargets = 'a, button, .btn-primary, .btn-ghost, .nav-cta, .def-feat-card, .def-test-card, .social-link, input, textarea, select';
     document.addEventListener('mouseover', function(e) {
       if (e.target.closest(hoverTargets)) { cursor.classList.add('hover'); ring.classList.add('hover'); }
@@ -2183,179 +2190,27 @@ body { background: #080808 !important; }
 })();
 </script>
 <script>
-/* Draftly runtime utilities */
-(function () {
-
-  /* ── Lucide icons ─────────────────────────────────────────────────────── */
-  if (window.lucide) lucide.createIcons();
-  document.addEventListener('DOMContentLoaded', function () {
-    if (window.lucide) lucide.createIcons();
+/* Lead form submission */
+window.submitLeadForm = async function () {
+  var form = document.getElementById('lead-form');
+  var btn  = form ? form.querySelector('.form-submit') : null;
+  if (!form || !btn) return;
+  var data = {};
+  form.querySelectorAll('input,textarea,select').forEach(function (el) {
+    if (el.name && el.value) data[el.name] = el.value;
   });
-
-  /* ── Hide empty announcement bar ─────────────────────────────────────── */
-  var abar = document.getElementById('announcement-bar');
-  if (abar) {
-    var atext = abar.querySelector('#announcement-text, span');
-    if (!atext || !atext.textContent.trim()) abar.style.display = 'none';
-  }
-
-  /* ── Scroll progress bar ──────────────────────────────────────────────── */
-  var progressBar = document.getElementById('scrollProgressBar');
-  if (progressBar) {
-    window.addEventListener('scroll', function () {
-      var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      progressBar.style.width = Math.min(pct * 100, 100) + '%';
-    }, { passive: true });
-  }
-
-  /* ── Nav scroll effect ────────────────────────────────────────────────── */
-  var nav = document.getElementById('site-nav');
-  if (nav) {
-    window.addEventListener('scroll', function () {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
-  }
-
-  /* ── IntersectionObserver scroll reveals ─────────────────────────────── */
-  var revealObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('is-revealed');
-        revealObserver.unobserve(e.target); // fire once
-      }
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    var siteId = (document.querySelector('meta[name="draftly-site-id"]') || {}).content || '';
+    await fetch('https://app.draftly.space/api/sites/' + siteId + '/leads', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.assign({}, data, { source: 'contact_form', page: window.location.pathname }))
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
-
-  document.querySelectorAll('.reveal, .reveal-stagger').forEach(function (el) {
-    revealObserver.observe(el);
-  });
-
-  /* ── Counter animation (for stat sections) ───────────────────────────── */
-  function animateCounter(el) {
-    var target = parseFloat(el.dataset.count || el.textContent.replace(/[^0-9.]/g, ''));
-    var suffix = el.dataset.suffix || el.textContent.replace(/[0-9.]/g, '').trim();
-    var duration = 1800;
-    var start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      var val = target * ease;
-      el.textContent = (val >= 1000 ? (val / 1000).toFixed(1) + 'k' : Math.round(val)) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  var counterObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        animateCounter(e.target);
-        counterObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  document.querySelectorAll('[data-count]').forEach(function (el) {
-    counterObserver.observe(el);
-  });
-
-  /* ── GSAP — headline split + scroll-triggered section entrances ───────── */
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-
-    if (window.SplitText) {
-      gsap.registerPlugin(SplitText);
-      document.querySelectorAll('.hero-headline, .split-headline').forEach(function (el) {
-        var split = new SplitText(el, { type: 'lines' });
-        gsap.from(split.lines, {
-          opacity: 0, y: 50, duration: 1, stagger: 0.1,
-          ease: 'power3.out', delay: 0.2
-        });
-      });
-    }
-
-    /* Parallax on hero background */
-    document.querySelectorAll('.hero-bg').forEach(function (el) {
-      gsap.to(el, {
-        yPercent: 20,
-        ease: 'none',
-        scrollTrigger: { trigger: el.closest('.hero'), scrub: true }
-      });
-    });
-  }
-
-  /* ── Motion.js — spring hovers on cards ──────────────────────────────── */
-  if (window.Motion) {
-    var MA = Motion.animate;
-    document.querySelectorAll(
-      '.glass-card, .card, .feature-card, .pricing-card, .testimonial, .stat-block, .gallery-item'
-    ).forEach(function (card) {
-      card.addEventListener('mouseenter', function () {
-        MA(card, { y: -6, scale: 1.025 }, { type: 'spring', stiffness: 260, damping: 22, mass: 0.8 });
-      });
-      card.addEventListener('mouseleave', function () {
-        MA(card, { y: 0, scale: 1 }, { type: 'spring', stiffness: 300, damping: 30 });
-      });
-    });
-
-    /* Magnetic CTA buttons */
-    document.querySelectorAll('.cta-btn, [data-magnetic]').forEach(function (btn) {
-      btn.addEventListener('mousemove', function (e) {
-        var r = btn.getBoundingClientRect();
-        MA(btn, {
-          x: (e.clientX - r.left - r.width / 2) * 0.25,
-          y: (e.clientY - r.top - r.height / 2) * 0.25
-        }, { type: 'spring', stiffness: 200, damping: 20 });
-      });
-      btn.addEventListener('mouseleave', function () {
-        MA(btn, { x: 0, y: 0 }, { type: 'spring', stiffness: 300, damping: 28 });
-      });
-    });
-  }
-
-  /* ── Lead form submission ─────────────────────────────────────────────── */
-  window.submitLeadForm = async function () {
-    var form = document.getElementById('lead-form');
-    var btn  = form ? form.querySelector('.form-submit') : null;
-    if (!form || !btn) return;
-
-    var data = {};
-    form.querySelectorAll('input,textarea,select').forEach(function (el) {
-      if (el.name && el.value) data[el.name] = el.value;
-    });
-
-    /* Merge vertical-specific fields into message */
-    var standardKeys = ['name', 'email', 'phone', 'message'];
-    var extras = Object.keys(data)
-      .filter(function (k) { return standardKeys.indexOf(k) === -1; })
-      .map(function (k) { return k + ': ' + data[k]; })
-      .join('\n');
-    if (extras) data.message = (data.message ? data.message + '\n---\n' : '') + extras;
-
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    try {
-      var siteId = (document.querySelector('meta[name="draftly-site-id"]') || {}).content || '';
-      await fetch('https://app.draftly.space/api/sites/' + siteId + '/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(Object.assign({}, data, {
-          source: 'contact_form',
-          page: window.location.pathname
-        }))
-      });
-      form.style.display = 'none';
-      var success = document.getElementById('lead-success');
-      if (success) { success.style.display = 'flex'; if (window.lucide) lucide.createIcons(); }
-    } catch (e) {
-      btn.disabled = false;
-      btn.textContent = btn.dataset.label || 'Send Message';
-    }
-  };
-
-})();
+    form.style.display = 'none';
+    var success = document.getElementById('lead-success');
+    if (success) { success.style.display = 'flex'; }
+  } catch (e) { btn.disabled = false; btn.textContent = 'Send Enquiry'; }
+};
 </script>
 </body>
 </html>
