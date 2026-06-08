@@ -229,10 +229,14 @@
       transition: opacity 0.3s;
     }
 
-    /* ══ CANVAS SHARPNESS ══ */
+    /* ══ CANVAS SHARPNESS + GPU ══ */
     #bgCanvas {
       image-rendering: auto;
       -webkit-font-smoothing: antialiased;
+      will-change: contents;
+    }
+    #bgWrap {
+      transition: opacity 0.5s ease;
     }
 
     /* ══ FORM INPUT FOCUS GLOW ══ */
@@ -578,13 +582,21 @@
       margin-top: 20px;
     }
 
-    /* ── Premium Footer — solid to block video underneath ── */
+    /* ── Footer — solid, covers canvas, no scroll past it ── */
     footer {
       background: #080808;
       border-top: 1px solid rgba(201,164,86,0.2);
       padding: 96px 5vw 40px;
       position: relative;
       z-index: 10;
+    }
+    /* Block to cover fixed canvas below footer */
+    .lux-footer-cap {
+      height: 100vh;
+      background: #080808;
+      position: relative;
+      z-index: 10;
+      display: none;
     }
     .footer-brand .nav-logo {
       font-size: 28px;
@@ -621,13 +633,11 @@
     #faq { background: rgba(12,12,11,0.5) !important; backdrop-filter: blur(12px) saturate(1.2) !important; -webkit-backdrop-filter: blur(12px) saturate(1.2) !important; }
     #contact { background: rgba(10,10,9,0.55) !important; backdrop-filter: blur(12px) saturate(1.2) !important; -webkit-backdrop-filter: blur(12px) saturate(1.2) !important; }
     #collections { background: rgba(11,11,11,0.5); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
-    #journey { background: rgba(10,10,9,0.52); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
-    #boutiques { background: rgba(11,11,11,0.5); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
     .lux-marquee { background: rgba(8,8,8,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     .lux-stats { background: rgba(9,9,9,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 
     /* ── Gold accent line at section top ── */
-    #about::before, #features::before, #testimonials::before, #faq::before, #contact::before, #collections::before, #journey::before, #boutiques::before {
+    #about::before, #features::before, #testimonials::before, #faq::before, #contact::before, #collections::before {
       content: '';
       position: absolute;
       top: 0; left: 50%;
@@ -635,7 +645,7 @@
       width: 60px; height: 1px;
       background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
     }
-    #about, #features, #testimonials, #faq, #contact, #collections, #journey, #boutiques { position: relative; }
+    #about, #features, #testimonials, #faq, #contact, #collections { position: relative; }
 
     /* ── Mobile pill nav ── */
     @media (max-width: 900px) {
@@ -971,7 +981,7 @@ i[data-lucide] svg{display:block}
       <li><a href="#about">Atelier</a></li>
       <li><a href="#collections">Collections</a></li>
       <li><a href="#testimonials">Patrons</a></li>
-      <li><a href="#boutiques">Boutiques</a></li>
+      <li><a href="#faq">Enquiries</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Visit Atelier</a>
@@ -984,7 +994,7 @@ i[data-lucide] svg{display:block}
     <a href="#about">Atelier</a>
     <a href="#collections">Collections</a>
     <a href="#testimonials">Patrons</a>
-    <a href="#boutiques">Boutiques</a>
+    <a href="#faq">Enquiries</a>
     <a href="#contact">Contact</a>
   </div>
 
@@ -1231,89 +1241,6 @@ i[data-lucide] svg{display:block}
   </div>
 </section>
 
-  <!-- Section: Default FAQ Accordion -->
-<!-- Section: The Journey -->
-<section id="journey" style="padding: 120px 5vw;">
-  <style>
-    .journey-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
-    .journey-step {
-      position: relative; text-align: center; padding: 48px 28px;
-      border-right: 1px solid rgba(201,164,86,0.08);
-      counter-increment: step;
-      transition: background 0.5s;
-    }
-    .journey-step:last-child { border-right: none; }
-    .journey-step:hover { background: rgba(201,164,86,0.03); }
-    .journey-num {
-      font-family: var(--font-display); font-size: 56px; font-weight: 400;
-      font-style: italic; color: rgba(201,164,86,0.2); line-height: 1; margin-bottom: 20px;
-    }
-    .journey-icon {
-      width: 48px; height: 48px; margin: 0 auto 20px;
-      border: 1px solid rgba(201,164,86,0.25); border-top-color: rgba(201,164,86,0.4);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: var(--brand-accent);
-      background: linear-gradient(135deg, rgba(201,164,86,0.08), rgba(201,164,86,0.02));
-      box-shadow: inset 0 1px 0 rgba(255,251,243,0.05);
-    }
-    .journey-title {
-      font-family: var(--font-display); font-size: 22px; font-weight: 500;
-      color: #FFFFFF; margin-bottom: 12px;
-    }
-    .journey-desc {
-      font-size: 14px; color: rgba(255,251,243,0.8); line-height: 1.8; font-weight: 400;
-    }
-    .journey-line {
-      position: absolute; top: 94px; right: -20px;
-      width: 40px; height: 1px;
-      background: linear-gradient(90deg, rgba(201,164,86,0.3), rgba(201,164,86,0.05));
-    }
-    .journey-step:last-child .journey-line { display: none; }
-    @media (max-width: 800px) {
-      .journey-grid { grid-template-columns: 1fr 1fr; }
-      .journey-step:nth-child(2) { border-right: none; }
-      .journey-line { display: none; }
-    }
-    @media (max-width: 500px) { .journey-grid { grid-template-columns: 1fr; } .journey-step { border-right: none; border-bottom: 1px solid rgba(201,164,86,0.08); } }
-  </style>
-  <div style="text-align:center; margin-bottom:72px;">
-    <div class="section-label reveal">The Journey</div>
-    <h2 class="section-title reveal section-headline" style="text-align:center;">From <span>Hide to Heirloom</span></h2>
-    <p class="section-sub reveal" style="margin: 0 auto;">Every piece follows a path of patience — from the desert to the atelier, through the hands of masters, into a lifetime of use.</p>
-  </div>
-  <div class="journey-grid" style="background: linear-gradient(160deg, rgba(201,164,86,0.05), rgba(20,18,14,0.5), rgba(201,164,86,0.03)); border: 1px solid rgba(201,164,86,0.15); border-top: 1px solid rgba(201,164,86,0.28); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 8px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,251,243,0.05);">
-    <div class="journey-step reveal">
-      <div class="journey-num">01</div>
-      <div class="journey-icon"><i data-lucide="sun" width="20" height="20"></i></div>
-      <div class="journey-title">Source</div>
-      <div class="journey-desc">By-product hides from local Emirati farms, graded by hand for grain and integrity.</div>
-      <div class="journey-line"></div>
-    </div>
-    <div class="journey-step reveal" style="transition-delay:0.1s;">
-      <div class="journey-num">02</div>
-      <div class="journey-icon"><i data-lucide="clock" width="20" height="20"></i></div>
-      <div class="journey-title">Tan</div>
-      <div class="journey-desc">Twelve weeks in pits of bark, sumac and date. No chemicals. No shortcuts.</div>
-      <div class="journey-line"></div>
-    </div>
-    <div class="journey-step reveal" style="transition-delay:0.2s;">
-      <div class="journey-num">03</div>
-      <div class="journey-icon"><i data-lucide="hand" width="20" height="20"></i></div>
-      <div class="journey-title">Craft</div>
-      <div class="journey-desc">Hand-cut, saddle-stitched and finished across six weeks by master artisans.</div>
-      <div class="journey-line"></div>
-    </div>
-    <div class="journey-step reveal" style="transition-delay:0.3s;">
-      <div class="journey-num">04</div>
-      <div class="journey-icon"><i data-lucide="award" width="20" height="20"></i></div>
-      <div class="journey-title">Deliver</div>
-      <div class="journey-desc">Hand-numbered, wrapped in muslin, presented in our signature wooden case.</div>
-    </div>
-  </div>
-</section>
-
-<div class="lux-divider"></div>
-
 <section id="faq" style="padding: 100px 5vw;">
   <style>
     .def-faq-wrap {
@@ -1386,64 +1313,6 @@ i[data-lucide] svg{display:block}
   </script>
 </section>
 
-  <!-- Section: Boutiques -->
-  <section id="boutiques" style="padding: 120px 5vw;">
-    <style>
-      .bout-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-      .bout-card {
-        background: linear-gradient(160deg, rgba(201,164,86,0.06), rgba(20,18,14,0.55), rgba(201,164,86,0.04));
-        border: 1px solid rgba(201,164,86,0.18);
-        border-top: 1px solid rgba(201,164,86,0.3);
-        backdrop-filter: blur(24px) saturate(1.3);
-        -webkit-backdrop-filter: blur(24px) saturate(1.3);
-        padding: 40px 32px;
-        text-align: center;
-        box-shadow: 0 6px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,251,243,0.05);
-        transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;
-      }
-      .bout-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(201,164,86,0.04); }
-      .bout-icon {
-        width: 56px; height: 56px; margin: 0 auto 24px;
-        border: 1px solid rgba(201,164,86,0.25); border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        color: var(--brand-accent);
-        background: linear-gradient(135deg, rgba(201,164,86,0.1), rgba(201,164,86,0.03));
-      }
-      .bout-name { font-family: var(--font-display); font-size: 24px; font-weight: 500; color: #FFFFFF; margin-bottom: 10px; }
-      .bout-addr { font-size: 14px; color: rgba(255,251,243,0.75); line-height: 1.7; margin-bottom: 16px; }
-      .bout-link { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand-accent); font-weight: 600; transition: letter-spacing 0.3s; }
-      .bout-card:hover .bout-link { letter-spacing: 0.24em; }
-      @media (max-width: 700px) { .bout-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
-    </style>
-    <div style="text-align:center; margin-bottom:72px;">
-      <div class="section-label reveal">Visit Us</div>
-      <h2 class="section-title reveal section-headline" style="text-align:center;">Our <span>Boutiques</span></h2>
-      <p class="section-sub reveal" style="margin: 0 auto;">Experience the leather in person. Touch the grain, feel the weight, and see the hand of the artisan in every stitch.</p>
-    </div>
-    <div class="bout-grid">
-      <div class="bout-card reveal">
-        <div class="bout-icon"><i data-lucide="map-pin" width="22" height="22"></i></div>
-        <div class="bout-name">Dalma Mall</div>
-        <div class="bout-addr">Ground Floor, Wing B<br>Abu Dhabi, UAE</div>
-        <span class="bout-link">Get Directions →</span>
-      </div>
-      <div class="bout-card reveal" style="transition-delay:0.1s;">
-        <div class="bout-icon"><i data-lucide="map-pin" width="22" height="22"></i></div>
-        <div class="bout-name">Bawadi Mall</div>
-        <div class="bout-addr">First Floor, East Atrium<br>Al Ain, UAE</div>
-        <span class="bout-link">Get Directions →</span>
-      </div>
-      <div class="bout-card reveal" style="transition-delay:0.2s;">
-        <div class="bout-icon"><i data-lucide="building" width="22" height="22"></i></div>
-        <div class="bout-name">The Atelier</div>
-        <div class="bout-addr">Private Viewing by Appointment<br>Abu Dhabi Industrial City</div>
-        <span class="bout-link">Book a Visit →</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="lux-divider"></div>
-
   <!-- Contact / Lead Form -->
   <section id="contact">
     <div style="text-align:center; margin-bottom:56px;">
@@ -1512,6 +1381,9 @@ i[data-lucide] svg{display:block}
     <div class="footer-bottom"><span>© 2025 EBL. All rights reserved.</span><span>Abu Dhabi, United Arab Emirates</span></div>
   </footer>
 
+  <!-- Solid cap to block the fixed canvas below footer -->
+  <div id="footerCap" style="background:#080808;position:relative;z-index:10;height:2px;"></div>
+
   <div class="mobile-cta-bar">
     <a href="#contact" class="btn-primary">Send Enquiry</a>
   </div>
@@ -1572,8 +1444,8 @@ i[data-lucide] svg{display:block}
 (function(){
   // ══ ENHANCED SCROLL FRAME ENGINE — 300 HQ frames + gold color grade ══
   const TOTAL_FRAMES = window.__FRAME_DATA_URLS ? window.__FRAME_DATA_URLS.length : 300;
-  const LERP_SPEED = 0.12;          // smooth but responsive
-  const FRAME_PHASE = 0.30;         // video plays in first 30% of scroll — content gets room
+  const LERP_SPEED = 0.08;          // buttery smooth interpolation
+  const FRAME_PHASE = 0.25;         // video plays in first 25% of scroll — hero only
   const images = new Array(TOTAL_FRAMES);
   let currentFrame = 0, targetFrame = 0, loaded = 0, isReady = false, maxLoadedIndex = -1;
   let lastDrawnIdx = -1;
@@ -2007,14 +1879,29 @@ i[data-lucide] svg{display:block}
     }, { passive: true });
   })();
 
-  // ── Background Overlay — stays subtle, sections handle readability ──
+  // ── Background Overlay + hide canvas at footer ──
   (function() {
     var overlay = document.getElementById('luxBgOverlay');
+    var bgWrap = document.getElementById('bgWrap');
     if (!overlay) return;
     window.addEventListener('scroll', function() {
       var vh = window.innerHeight;
       var progress = Math.min(window.scrollY / (vh * 0.8), 1);
       overlay.style.opacity = 0.1 + progress * 0.3;
+
+      // Hide the fixed video canvas when near the footer
+      if (bgWrap) {
+        var footer = document.querySelector('footer');
+        if (footer) {
+          var footerTop = footer.getBoundingClientRect().top;
+          if (footerTop < vh * 0.5) {
+            var fadeProgress = Math.max(0, 1 - (footerTop / (vh * 0.5)));
+            bgWrap.style.opacity = 1 - fadeProgress;
+          } else {
+            bgWrap.style.opacity = '1';
+          }
+        }
+      }
     }, { passive: true });
   })();
 
@@ -2221,18 +2108,6 @@ i[data-lucide] svg{display:block}
       gsap.from('.coll-card', {
         scrollTrigger: { trigger: '.coll-grid', start: 'top 82%' },
         y: 60, opacity: 0, duration: 0.9, stagger: 0.15, ease: 'power3.out'
-      });
-
-      // Journey steps
-      gsap.from('.journey-step', {
-        scrollTrigger: { trigger: '.journey-grid', start: 'top 82%' },
-        y: 40, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out'
-      });
-
-      // Boutique cards
-      gsap.from('.bout-card', {
-        scrollTrigger: { trigger: '.bout-grid', start: 'top 82%' },
-        y: 50, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out'
       });
 
       // Footer columns
