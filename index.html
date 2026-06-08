@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="draftly-site-id" content="proj_1780902198427">
+  <title>EBL — Your home, intelligent.</title>
+  <meta name="description" content="EBL crafts heirloom camel leather goods in the United Arab Emirates — 26+ years of heritage, hand-finished by master artisans, made from 100% natural by-product hides." />
+  <link rel="canonical" href="https://ebl.ae" />
+  <meta property="og:title" content="EBL — The UAE's Camel Leather House" />
+  <meta property="og:description" content="Where Emirati heritage meets enduring craftsmanship. Cinematic luxury camel leather, born from the spirit of the Emirates." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1200" />
+  <meta property="og:url" content="https://ebl.ae" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "Organization", "name": "EBL — Emirates Bin Laila", "description": "The UAE's Camel Leather House. Heritage craftsmanship from the heart of the Emirates.", "url": "https://ebl.ae", "logo": "https://ebl.ae/logo.svg", "telephone": "+971 2 555 0188", "email": "atelier@ebl.ae", "address": { "@type": "PostalAddress", "addressLocality": "Abu Dhabi", "addressCountry": "United Arab Emirates" }, "sameAs": ["https://instagram.com/ebl", "https://linkedin.com/company/ebl", "https://twitter.com/ebl"] }
+  </script>
+
+  <style>
+    :root {
+      --brand-bg: #0B0B0B;
+      --brand-surface: rgba(184,147,77,0.06);
+      --brand-accent: #B8934D;
+      --brand-accent-rgb: 184,147,77;
+      --brand-text: #F7F2EA;
+      --brand-muted: rgba(247,242,234,0.78);
+      --brand-border: rgba(184,147,77,0.22);
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--brand-bg); color: var(--brand-text); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; cursor: none; }
+    body > *:not(#bgWrap) { position: relative; z-index: 1; }
+    body::before { content: ''; position: fixed; top: -200px; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(184,147,77,0.12) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+
+    /* ══ LUXURY CUSTOM CURSOR ══ */
+    .lux-cursor { position: fixed; top: 0; left: 0; width: 12px; height: 12px; background: var(--brand-accent); border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; transition: transform 0.15s ease, opacity 0.3s; }
+    .lux-cursor-ring { position: fixed; top: 0; left: 0; width: 44px; height: 44px; border: 1.5px solid rgba(184,147,77,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), width 0.4s, height 0.4s, border-color 0.4s; }
+    .lux-cursor.hover { transform: scale(2.5); }
+    .lux-cursor-ring.hover { width: 64px; height: 64px; border-color: var(--brand-accent); }
+    @media (max-width: 900px) { .lux-cursor, .lux-cursor-ring { display: none; } body { cursor: auto; } }
+
+    /* ══ SCROLL PROGRESS BAR ══ */
+    .lux-scroll-progress { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--brand-accent), rgba(184,147,77,0.6)); z-index: 9990; width: 0%; transition: none; }
+
+    /* ══ SUBTLE HEADING GLOW ══ */
+    .hero h1, .section-title {
+      color: var(--brand-text);
+      text-shadow: 0 0 60px rgba(184,147,77,0.12), 0 0 120px rgba(184,147,77,0.06);
+    }
+    .hero h1 span, .section-title span {
+      color: var(--brand-accent);
+      text-shadow: 0 0 40px rgba(184,147,77,0.25);
+    }
+
+    /* ══ MAGNETIC BUTTON EFFECTS ══ */
+    .btn-primary, .btn-ghost, .nav-cta, .form-submit {
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s, color 0.4s, transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+    }
+    .btn-primary::before, .btn-ghost::before, .nav-cta::before, .form-submit::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: radial-gradient(circle, rgba(184,147,77,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+      pointer-events: none;
+    }
+    .btn-primary:hover::before, .btn-ghost:hover::before, .nav-cta:hover::before, .form-submit:hover::before {
+      width: 400px; height: 400px;
+    }
+    .btn-primary:hover, .nav-cta:hover { box-shadow: 0 0 40px rgba(184,147,77,0.2), 0 0 80px rgba(184,147,77,0.08); }
+
+    /* ══ CARD LUXURY HOVER ══ */
+    .def-feat-card {
+      transition: border-color 0.5s, transform 0.6s cubic-bezier(0.16,1,0.3,1), background 0.5s, box-shadow 0.6s;
+    }
+    .def-feat-card:hover {
+      border-color: rgba(184,147,77,0.5);
+      background: rgba(184,147,77,0.07);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(184,147,77,0.08), 0 0 1px rgba(184,147,77,0.3);
+    }
+    .def-feat-icon {
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;
+    }
+    .def-feat-card:hover .def-feat-icon {
+      transform: scale(1.12) rotate(-3deg);
+      box-shadow: 0 0 24px rgba(184,147,77,0.2);
+    }
+
+    /* ══ TESTIMONIAL CARD GLOW ══ */
+    .def-test-card {
+      transition: border-color 0.5s, transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.6s;
+    }
+    .def-test-card:hover {
+      border-color: rgba(184,147,77,0.45);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(184,147,77,0.06), 0 0 1px rgba(184,147,77,0.25);
+    }
+
+    /* ══ IMAGE REVEAL WIPE ══ */
+    .def-about-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .def-about-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, var(--brand-accent), #D4AF6A);
+      transform: scaleX(1);
+      transform-origin: right;
+      transition: transform 1.2s cubic-bezier(0.77,0,0.175,1);
+      z-index: 2;
+    }
+    .def-about-img.revealed::after {
+      transform: scaleX(0);
+    }
+
+    /* ══ FLOATING GOLD PARTICLES ══ */
+    .lux-particles { position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
+    .lux-particle {
+      position: absolute;
+      width: 3px; height: 3px;
+      background: var(--brand-accent);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleFloat linear infinite;
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.2; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* ══ NAV SCROLL EFFECT ══ */
+    nav { transition: background 0.5s, border-color 0.5s, box-shadow 0.5s, padding 0.4s; }
+    nav.scrolled {
+      background: rgba(11,11,11,0.97) !important;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3), 0 1px 0 rgba(184,147,77,0.1);
+      border-bottom-color: rgba(184,147,77,0.35) !important;
+    }
+
+    /* ══ HERO ENTRANCE ══ */
+    .hero-content { opacity: 0; }
+    .hero-content.animate-in .hero-badge { animation: fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both; }
+    .hero-content.animate-in h1 { animation: fadeSlideUp 1s cubic-bezier(0.16,1,0.3,1) 0.5s both; }
+    .hero-content.animate-in .hero-sub { animation: fadeSlideUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.8s both; }
+    .hero-content.animate-in .hero-ctas { animation: fadeSlideUp 0.9s cubic-bezier(0.16,1,0.3,1) 1.1s both; }
+    .hero-content.animate-in .hero-trust { animation: fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) 1.4s both; }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══ SECTION DIVIDER LINES ══ */
+    .lux-divider { width: 100%; height: 1px; position: relative; overflow: hidden; margin: 0; }
+    .lux-divider::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
+      animation: none;
+    }
+    .lux-divider.animate::after {
+      animation: dividerSweep 1.5s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    @keyframes dividerSweep {
+      to { left: 100%; }
+    }
+
+    /* ══ FAQ SMOOTH OPEN ══ */
+    .def-faq-q { transition: color 0.3s, letter-spacing 0.5s; }
+    .def-faq-item.open .def-faq-q { letter-spacing: 0.02em; }
+
+    /* ══ COUNTER ANIMATION ══ */
+    .def-about-badge-num { transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+    .def-about-badge:hover .def-about-badge-num { transform: scale(1.1); }
+
+    /* ══ FOOTER LINK UNDERLINE ANIMATION ══ */
+    .footer-col ul a {
+      position: relative;
+    }
+    .footer-col ul a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--brand-accent);
+      transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .footer-col ul a:hover::after { width: 100%; }
+
+    /* ══ SOCIAL LINK PULSE ══ */
+    .social-link { transition: border-color 0.3s, color 0.3s, transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s; }
+    .social-link:hover {
+      border-color: var(--brand-accent);
+      color: var(--brand-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(184,147,77,0.15);
+    }
+
+    /* ══ BACKGROUND VIDEO OVERLAY — fades darker on scroll for text readability ══ */
+    .lux-bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg,
+        rgba(11,11,11,0.15) 0%,
+        rgba(11,11,11,0.3) 30%,
+        rgba(11,11,11,0.7) 70%,
+        rgba(11,11,11,0.9) 100%
+      );
+      transition: opacity 0.3s;
+    }
+
+    /* ══ CANVAS SHARPNESS ══ */
+    #bgCanvas {
+      image-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══ FORM INPUT FOCUS GLOW ══ */
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--brand-accent);
+      box-shadow: 0 0 0 3px rgba(184,147,77,0.08), 0 0 20px rgba(184,147,77,0.06);
+    }
+
+    /* ══════════════════════════════════════════════
+       PREMIUM HIGHER-END UPGRADES
+       ══════════════════════════════════════════════ */
+
+    /* ── Film Grain Overlay ── */
+    .lux-grain {
+      position: fixed; inset: 0; z-index: 9000; pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+      mix-blend-mode: overlay;
+    }
+
+    /* ── Floating Nav Pill ── */
+    #site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    nav#site-nav {
+      margin: 16px auto 0;
+      max-width: 1100px;
+      width: calc(100% - 48px);
+      border-radius: 60px;
+      background: rgba(11,11,11,0.6) !important;
+      backdrop-filter: blur(30px) saturate(1.4) !important;
+      -webkit-backdrop-filter: blur(30px) saturate(1.4) !important;
+      border: 1px solid rgba(184,147,77,0.15) !important;
+      border-bottom: 1px solid rgba(184,147,77,0.15) !important;
+      padding: 0 32px;
+      height: 56px;
+      transition: background 0.6s, border-color 0.6s, box-shadow 0.6s, margin 0.5s, width 0.5s;
+    }
+    nav#site-nav.scrolled {
+      background: rgba(11,11,11,0.85) !important;
+      border-color: rgba(184,147,77,0.3) !important;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(184,147,77,0.08) !important;
+      margin-top: 10px;
+    }
+    .nav-logo {
+      font-size: 20px;
+      letter-spacing: 0.25em;
+      background: linear-gradient(135deg, var(--brand-accent), #D4AF6A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-cta {
+      border-radius: 30px !important;
+      padding: 8px 20px;
+      font-size: 11px;
+    }
+
+    /* ── Hero Upgrade ── */
+    .hero {
+      min-height: 100vh;
+      padding-top: 120px;
+      padding-bottom: 60px;
+    }
+    .hero h1 {
+      font-size: clamp(52px, 9vw, 120px);
+      line-height: 0.98;
+      margin-bottom: 32px;
+    }
+    .hero-badge {
+      background: rgba(184,147,77,0.06);
+      border: 1px solid rgba(184,147,77,0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 40px;
+      padding: 8px 22px;
+    }
+
+    /* ── Scroll Indicator ── */
+    .lux-scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: scrollHintFloat 2.5s ease-in-out infinite;
+    }
+    .lux-scroll-hint span {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(247,242,234,0.4);
+      font-weight: 400;
+    }
+    .lux-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--brand-accent), transparent);
+      animation: scrollLinePulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollHintFloat {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+    @keyframes scrollLinePulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+
+    /* ── Luxury Marquee Band ── */
+    .lux-marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid rgba(184,147,77,0.12);
+      border-bottom: 1px solid rgba(184,147,77,0.12);
+      padding: 28px 0;
+      position: relative;
+      z-index: 1;
+      background: rgba(11,11,11,0.5);
+    }
+    .lux-marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marqueeScroll 40s linear infinite;
+      width: max-content;
+    }
+    .lux-marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      padding: 0 40px;
+      font-family: var(--font-display);
+      font-size: clamp(20px, 3vw, 36px);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(247,242,234,0.2);
+      letter-spacing: 0.04em;
+    }
+    .lux-marquee-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-accent);
+      opacity: 0.4;
+      flex-shrink: 0;
+    }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Stats Band ── */
+    .lux-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(184,147,77,0.12);
+      border-bottom: 1px solid rgba(184,147,77,0.12);
+      position: relative;
+      z-index: 1;
+      background: rgba(11,11,11,0.4);
+    }
+    .lux-stat {
+      text-align: center;
+      padding: 56px 24px;
+      border-right: 1px solid rgba(184,147,77,0.08);
+      position: relative;
+    }
+    .lux-stat:last-child { border-right: none; }
+    .lux-stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--brand-accent);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .lux-stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(247,242,234,0.5);
+    }
+    @media (max-width: 700px) {
+      .lux-stats { grid-template-columns: 1fr 1fr; }
+      .lux-stat:nth-child(2) { border-right: none; }
+      .lux-stat { padding: 36px 16px; }
+    }
+
+    /* ── Premium About Upgrade ── */
+    .def-about-img {
+      aspect-ratio: 3/4;
+    }
+    .def-about-img img {
+      filter: contrast(1.08) saturate(0.85) brightness(1.02);
+      transition: transform 8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .def-about-img:hover img {
+      transform: scale(1.05);
+    }
+    .def-about-badge {
+      border: 1px solid rgba(184,147,77,0.35);
+      backdrop-filter: blur(16px);
+      background: rgba(11,11,11,0.85);
+    }
+
+    /* ── Premium Feature Cards ── */
+    .def-feat-card {
+      background: rgba(184,147,77,0.03);
+      border: 1px solid rgba(184,147,77,0.12);
+      padding: 44px 36px;
+      position: relative;
+    }
+    .def-feat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 40px; height: 1px;
+      background: var(--brand-accent);
+      opacity: 0;
+      transition: opacity 0.5s, width 0.6s;
+    }
+    .def-feat-card:hover::before {
+      opacity: 1;
+      width: 100%;
+    }
+    .def-feat-title {
+      font-size: 26px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Premium Testimonial Cards ── */
+    .def-test-card {
+      position: relative;
+      padding: 44px 36px;
+      background: rgba(184,147,77,0.025);
+      border: 1px solid rgba(184,147,77,0.12);
+    }
+    .def-test-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px; right: 28px;
+      font-family: var(--font-display);
+      font-size: 80px;
+      line-height: 1;
+      color: rgba(184,147,77,0.1);
+      pointer-events: none;
+    }
+    .def-test-quote {
+      font-size: 20px;
+      line-height: 1.65;
+    }
+    .def-test-avatar {
+      border: 1px solid rgba(184,147,77,0.3);
+    }
+
+    /* ── Premium Form ── */
+    .form-section {
+      background: rgba(184,147,77,0.03);
+      border: 1px solid rgba(184,147,77,0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 64px;
+      max-width: 720px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      background: rgba(247,242,234,0.04);
+      border: 1px solid rgba(184,147,77,0.15);
+      padding: 16px 18px;
+      font-size: 15px;
+      transition: border-color 0.4s, box-shadow 0.4s;
+    }
+    .form-submit {
+      padding: 18px;
+      letter-spacing: 0.2em;
+      border-radius: 0;
+      margin-top: 20px;
+    }
+
+    /* ── Premium Footer ── */
+    footer {
+      background: rgba(11,11,11,0.6);
+      border-top: 1px solid rgba(184,147,77,0.12);
+      padding: 96px 5vw 40px;
+    }
+    .footer-brand .nav-logo {
+      font-size: 28px;
+    }
+    .footer-bottom {
+      padding-top: 36px;
+      margin-top: 12px;
+    }
+
+    /* ── Announcement Bar Upgrade ── */
+    .announcement-bar {
+      background: rgba(184,147,77,0.05);
+      border-bottom: 1px solid rgba(184,147,77,0.1);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      padding: 10px 20px;
+    }
+
+    /* ── Section Backgrounds ── */
+    #about { background: rgba(11,11,11,0.5); }
+    #features { background: rgba(11,11,11,0.4); }
+    #testimonials { background: rgba(184,147,77,0.02) !important; }
+    #faq { background: rgba(11,11,11,0.45) !important; }
+    #contact { background: rgba(184,147,77,0.02) !important; }
+
+    /* ── Mobile pill nav ── */
+    @media (max-width: 900px) {
+      nav#site-nav {
+        width: calc(100% - 32px);
+        padding: 0 20px;
+        height: 50px;
+        margin-top: 12px;
+      }
+    }
+
+    .announcement-bar { background: rgba(184,147,77,0.10); border-bottom: 1px solid var(--brand-border); color: var(--brand-text); text-align: center; padding: 9px 20px; font-size: 13px; font-weight: 400; letter-spacing: 0.04em; position: relative; z-index: 2; }
+    .announcement-bar a { color: #C8A26A; text-decoration: none; font-weight: 600; }
+
+    nav { position: relative; top: auto; z-index: 100; background: rgba(11,11,11,0.92); backdrop-filter: blur(24px); border-bottom: 1px solid var(--brand-border); padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: 0.18em; color: var(--brand-text); text-decoration: none; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { color: rgba(247,242,234,0.8); text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--brand-accent); }
+    .nav-cta { background: transparent; color: var(--brand-accent); border: 1px solid var(--brand-accent); padding: 10px 22px; border-radius: 0; font-family: var(--font-body); font-weight: 500; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.3s, color 0.3s; }
+    .nav-cta:hover { background: var(--brand-accent); color: #0B0B0B; }
+    .nav-hamburger { display: none; background: none; border: none; color: var(--brand-text); cursor: pointer; }
+
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 5vw; position: relative; z-index: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(184,147,77,0.10); border: 1px solid rgba(184,147,77,0.35); color: #C8A26A; padding: 7px 18px; border-radius: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 36px; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(48px, 8vw, 110px); font-weight: 500; line-height: 1.02; letter-spacing: -0.01em; margin-bottom: 28px; max-width: 1000px; }
+    .hero h1 span { color: var(--brand-accent); font-style: italic; }
+    .hero-sub { font-size: 17px; color: rgba(247,242,234,0.85); max-width: 580px; margin: 0 auto 48px; line-height: 1.8; font-weight: 300; letter-spacing: 0.02em; }
+    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
+    .btn-primary { background: var(--brand-accent); color: #0B0B0B; padding: 16px 32px; border-radius: 0; font-family: var(--font-body); font-weight: 500; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--brand-accent); cursor: pointer; transition: background 0.3s, color 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-primary:hover { background: transparent; color: var(--brand-accent); }
+    .btn-ghost { background: transparent; color: var(--brand-text); padding: 16px 32px; border-radius: 0; border: 1px solid rgba(247,242,234,0.3); font-family: var(--font-body); font-weight: 500; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color 0.3s, color 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-ghost:hover { border-color: var(--brand-accent); color: var(--brand-accent); }
+    .hero-trust { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 12px; color: rgba(247,242,234,0.82); letter-spacing: 0.08em; text-transform: uppercase; }
+    .trust-item-icon { color: var(--brand-accent); }
+
+    section { padding: 120px 5vw; position: relative; z-index: 1; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 20px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 500; line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 24px; }
+    .section-title span { font-style: italic; color: var(--brand-accent); }
+    .section-sub { font-size: 16px; color: rgba(247,242,234,0.82); max-width: 560px; line-height: 1.8; margin-bottom: 64px; font-weight: 400; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal.is-revealed { opacity: 1; transform: translateY(0); }
+
+    .form-section { background: var(--brand-surface); border: 1px solid var(--brand-border); border-radius: 0; padding: 56px; max-width: 680px; margin: 0 auto; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 10px; }
+    .form-group.full { grid-column: span 2; }
+    .form-group label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247,242,234,0.82); }
+    .form-group input, .form-group select, .form-group textarea { background: rgba(247,242,234,0.03); border: 1px solid var(--brand-border); border-radius: 0; padding: 14px 16px; color: var(--brand-text); font-family: var(--font-body); font-size: 14px; outline: none; transition: border-color 0.3s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--brand-accent); }
+    .form-group select option { background: #0B0B0B; }
+    .form-group textarea { min-height: 120px; resize: none; }
+    .form-submit { background: var(--brand-accent); color: #0B0B0B; border: 1px solid var(--brand-accent); padding: 17px; border-radius: 0; font-family: var(--font-body); font-weight: 500; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; width: 100%; margin-top: 12px; transition: background 0.3s, color 0.3s; }
+    .form-submit:hover { background: transparent; color: var(--brand-accent); }
+    .form-note { font-size: 11px; color: var(--brand-muted); text-align: center; margin-top: 14px; letter-spacing: 0.08em; }
+
+    footer { border-top: 1px solid var(--brand-border); padding: 72px 5vw 32px; position: relative; z-index: 1; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 14px; color: var(--brand-muted); margin-top: 16px; max-width: 300px; line-height: 1.8; font-style: italic; font-family: var(--font-display); font-size: 18px; }
+    .footer-col h4 { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul a { color: rgba(247,242,234,0.78); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--brand-text); }
+    .social-links { display: flex; gap: 12px; margin-top: 20px; }
+    .social-link { width: 38px; height: 38px; background: var(--brand-surface); border: 1px solid var(--brand-border); border-radius: 0; display: flex; align-items: center; justify-content: center; color: var(--brand-muted); text-decoration: none; transition: border-color 0.3s, color 0.3s; }
+    .social-link:hover { border-color: var(--brand-accent); color: var(--brand-accent); }
+    .footer-bottom { border-top: 1px solid var(--brand-border); padding-top: 28px; display: flex; justify-content: space-between; font-size: 11px; color: var(--brand-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .mobile-cta-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: rgba(11,11,11,0.97); border-top: 1px solid var(--brand-border); padding: 12px 16px; }
+    .mobile-cta-bar .btn-primary { width: 100%; justify-content: center; }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--brand-bg); z-index: 150; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 32px; font-weight: 500; color: var(--brand-text); text-decoration: none; letter-spacing: 0.04em; }
+    .mobile-menu-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--brand-text); cursor: pointer; }
+
+    @media (max-width: 900px) { .nav-links, .nav-cta { display: none; } .nav-hamburger { display: block; } .mobile-cta-bar { display: block; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } body { padding-bottom: 80px; } }
+    @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 8px; } .form-grid { grid-template-columns: 1fr; } .form-group.full { grid-column: 1; } .form-section { padding: 32px 20px; } .hero-trust { flex-direction: column; align-items: center; gap: 14px; } }
+  </style>
+<style id="draftly-template-safety">
+#bgWrap{z-index:-1!important}
+body>*:not(#bgWrap){position:relative;z-index:1}
+#site-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:100!important}
+</style>
+<style id="__draftly_bg_viewport_guard">
+html{height:100%;background:transparent!important}
+body{min-height:100%;margin:0;background:transparent!important}
+#bgWrap{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;min-height:100vh!important;z-index:0!important;overflow:hidden!important;pointer-events:none!important;margin:0!important;padding:0!important;box-sizing:border-box!important}
+/* Canvas scales 6% from center to crop thin black "curtain" bars Veo sometimes adds at edges. */
+#bgCanvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;margin:0!important;padding:0!important;box-sizing:border-box!important;transform:scale(1.06)!important;transform-origin:center center!important}
+#bgWrap,#bgCanvas,#bgWrap *{filter:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+#overlay{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;filter:none!important}
+#pageRoot{background:transparent!important}
+#postFrameBackdrop{position:fixed!important;inset:0!important;z-index:1!important;pointer-events:none!important;opacity:0!important;margin:0!important;padding:0!important;box-sizing:border-box!important}
+body>nav,body>header,#pageRoot>nav:first-of-type,#pageRoot>header:first-of-type,nav[role="navigation"],header[role="banner"]{z-index:8000!important}
+</style><style id="__lucide_guard">
+/* Prevent un-initialized Lucide icons from showing as large white shapes */
+i[data-lucide]{display:inline-flex!important;align-items:center!important;justify-content:center!important;background:transparent!important;border-radius:0!important;color:inherit!important}
+i[data-lucide] svg{display:block}
+</style>
+
+  <!-- Draftly SEO: Open Graph + Twitter Card [data-draftly-seo] -->
+  <meta name="description" content="Your home, intelligent." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="EBL — Your home, intelligent." />
+  <meta property="og:description" content="Your home, intelligent." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EBL" />
+  <meta name="twitter:description" content="Your home, intelligent." />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "EBL",
+  "description": "Your home, intelligent."
+}
+  </script>
+<style data-draftly-safety-css="1">
+  /* Draftly safety layer — keeps nav clickable + overlays transparent to input */
+  #overlay, #bgWrap, #bgCanvas, #scrollProgressBar,
+  .noise-overlay, #postFrameBackdrop { pointer-events: none !important; }
+
+  /* Liquid fill: permanently hidden in generated sites.
+     The cinematic finale blob is disabled — footer must be cleanly visible. */
+  #liquidFill {
+    display: none !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* ── Nav: always fixed pill, flex row, never breaks ── */
+  #siteNav,
+  nav, header, .nav-pill, .nav-bar, .site-nav, .navbar, .top-nav {
+    pointer-events: auto !important;
+    position: fixed !important;
+    z-index: 60 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  /* Full-width navbars */
+  nav:not(#siteNav), header, .nav-bar, .site-nav, .navbar, .top-nav {
+    top: 0 !important; left: 0 !important; right: 0 !important;
+    width: 100% !important; max-width: 100% !important;
+  }
+  /* Nav links group stays in center */
+  nav .nav-links, nav .nav-items, nav ul, nav ol,
+  header .nav-links, header .nav-items {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(16px, 2vw, 32px) !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+  /* CTA pill — never outside the nav row */
+  nav .nav-cta, nav .cta-btn, nav .cta-pill, nav a.cta,
+  nav button.cta, nav .btn-primary, nav .reserve-btn,
+  header .nav-cta, header .cta-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+  nav a, nav button, header a, header button,
+  .nav-pill a, .nav-pill button, .nav-bar a, .nav-bar button {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  /* ── Page content ── */
+  #pageRoot, main, .page-content { pointer-events: auto !important; }
+  #pageRoot section, #pageRoot .section, main section { pointer-events: auto !important; }
+  footer, .site-footer {
+    position: relative !important;
+    z-index: 50 !important;
+    pointer-events: auto !important;
+  }
+
+  /* ── No underlines anywhere ── */
+  a, a:link, a:visited, a:hover, a:active, a:focus {
+    text-decoration: none !important;
+  }
+
+  /* ── Scroll indicator: enforce absolute (never fixed) ── */
+  .scroll-indicator, [class*="scroll-indicator"], [class*="discover"],
+  #heroContent .scroll-down, #heroContent .scroll-hint {
+    position: absolute !important;
+  }
+
+  /* ── Hamburger: hidden on desktop ── */
+  .nav-hamburger { display: none; }
+
+  /* ── Mobile menu drawer: hidden by default ── */
+  #mobileMenu { display: none; }
+  #mobileMenu.is-open { display: flex !important; }
+
+  /* ══════════════════════════════════════
+     MOBILE: ≤768px
+     ══════════════════════════════════════ */
+  @media (max-width: 768px) {
+    /* Compact nav pill: brand + hamburger only */
+    #siteNav .nav-links,
+    nav .nav-links, nav .nav-items { display: none !important; }
+    #siteNav .nav-cta,
+    nav .nav-cta { display: none !important; }
+    .nav-hamburger {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+    #siteNav { gap: 8px !important; padding-left: 16px !important; padding-right: 8px !important; }
+
+    /* Hero text scales for small screens */
+    h1#heroHeadline, h1.hero-headline {
+      font-size: clamp(1.8rem, 7.5vw, 3rem) !important;
+      line-height: 1.1 !important;
+    }
+    #heroSubline, .hero-subline, .hero-sub {
+      font-size: clamp(0.82rem, 3vw, 1rem) !important;
+    }
+    .hero-cta, a.hero-cta, button.hero-cta {
+      padding: 10px 22px !important;
+      font-size: 0.82rem !important;
+    }
+
+    /* Single-column grids everywhere */
+    .bento-grid, .feature-grid, .features-grid,
+    .stats-grid, .kpi-grid, .metrics-grid,
+    .testimonial-grid, .quotes-grid,
+    .process-steps, .steps-grid,
+    .gallery-grid, .masonry-grid,
+    .pricing-grid, .plans-grid,
+    [style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Cards: full width */
+    .card, .feature-card, .bento-tile, .stat-block,
+    .quote-block, .testimonial, .pricing-card,
+    .process-step, .gallery-item {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Section padding */
+    section, .section {
+      padding-left: clamp(16px, 5vw, 28px) !important;
+      padding-right: clamp(16px, 5vw, 28px) !important;
+      padding-top: clamp(48px, 8vh, 72px) !important;
+      padding-bottom: clamp(48px, 8vh, 72px) !important;
+    }
+
+    /* Min touch targets */
+    a, button, [role="button"] { min-height: 44px; }
+
+    /* Footer single column */
+    footer > div > div[style*="grid"],
+    .footer-grid, .footer-columns {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* ══════════════════════════════════════
+     MOBILE: ≤480px (iPhone SE etc)
+     ══════════════════════════════════════ */
+  @media (max-width: 480px) {
+    h1#heroHeadline, h1.hero-headline {
+      font-size: clamp(1.55rem, 8.5vw, 2.2rem) !important;
+    }
+    #heroContent {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+    #siteNav {
+      max-width: calc(100vw - 16px) !important;
+      top: clamp(8px, 1.5vh, 14px) !important;
+    }
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script data-draftly-register-plugins="1">
+(function waitForGsap(attempts) {
+  if (attempts <= 0) return;
+  if (window.gsap && window.ScrollTrigger && window.SplitText) {
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+  } else {
+    setTimeout(function() { waitForGsap(attempts - 1); }, 150);
+  }
+})(20);
+</script>
+</head>
+<body>
+<div id="bgWrap" style="position:fixed;inset:0;z-index:-1;overflow:hidden;opacity:1"><canvas id="bgCanvas" style="position:absolute;left:0;top:0;width:100%;height:100%;display:block"></canvas></div>
+
+<!-- Background scroll-responsive overlay -->
+<div class="lux-bg-overlay" id="luxBgOverlay"></div>
+
+<!-- Luxury Cursor -->
+<div class="lux-cursor" id="luxCursor"></div>
+<div class="lux-cursor-ring" id="luxCursorRing"></div>
+
+<!-- Scroll Progress -->
+<div class="lux-scroll-progress" id="luxScrollProgress"></div>
+
+<!-- Floating Gold Particles -->
+<div class="lux-particles" id="luxParticles"></div>
+
+<!-- Film Grain -->
+<div class="lux-grain"></div>
+
+  <header id="site-header">
+<div id="announcement-bar" class="announcement-bar">A new chapter in Emirati craftsmanship — <a href="#contact">Reserve a private viewing</a></div>
+<nav id="site-nav">
+    <a href="/" class="nav-logo">EBL</a>
+    <ul class="nav-links">
+      <li><a href="#features">Heritage</a></li>
+      <li><a href="#about">Atelier</a></li>
+      <li><a href="#testimonials">Patrons</a></li>
+      <li><a href="#faq">Enquiries</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Visit Atelier</a>
+    <button class="nav-hamburger" id="hamburger"><i data-lucide="menu" width="24" height="24"></i></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose"><i data-lucide="x" width="26" height="26"></i></button>
+    <a href="#features">Heritage</a>
+    <a href="#about">Atelier</a>
+    <a href="#testimonials">Patrons</a>
+    <a href="#faq">Enquiries</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+    <div class="hero-badge"><i data-lucide="star" width="12" height="12"></i> The UAE's Camel Leather House</div>
+    <h1>Born from the spirit<br><span>of the Emirates.</span></h1>
+    <p class="hero-sub">A quiet rebellion against the disposable. Twenty-six years of patient hands, sun-cured hides and master finishing — distilled into objects designed to outlast their maker.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Explore the World of EBL <i data-lucide="arrow-right" width="14" height="14"></i></a>
+      <a href="#features" class="btn-ghost">Watch the Story</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><i data-lucide="check-circle-2" width="14" height="14" class="trust-item-icon"></i> 26+ Years of Craft</div>
+      <div class="trust-item"><i data-lucide="check-circle-2" width="14" height="14" class="trust-item-icon"></i> 100% Natural Hides</div>
+      <div class="trust-item"><i data-lucide="check-circle-2" width="14" height="14" class="trust-item-icon"></i> Made in the UAE</div>
+    </div>
+    </div>
+    <div class="lux-scroll-hint">
+      <span>Scroll</span>
+      <div class="lux-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Luxury Marquee Band -->
+  <div class="lux-marquee">
+    <div class="lux-marquee-track">
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Heritage Craftsmanship</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Abu Dhabi, UAE</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Since 1998</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Camel Leather</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Vegetable Tanned</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Hand-Stitched</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Heirloom Quality</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Made by Master Artisans</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Heritage Craftsmanship</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Abu Dhabi, UAE</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Since 1998</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Camel Leather</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Vegetable Tanned</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Hand-Stitched</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Heirloom Quality</div>
+      <div class="lux-marquee-item"><span class="lux-marquee-dot"></span>Made by Master Artisans</div>
+    </div>
+  </div>
+
+  <!-- Section: Default About -->
+<section id="about" style="padding: 100px 5vw;">
+  <style>
+    .def-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .def-about-img-wrap { position: relative; }
+    .def-about-img { width: 100%; aspect-ratio: 4/3; border-radius: 0; overflow: hidden; background: rgba(184,147,77,0.08); }
+    .def-about-img img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.05) saturate(0.9); }
+    .def-about-badge { position: absolute; bottom: -20px; right: -20px; background: var(--brand-bg); border: 1px solid var(--brand-border); border-radius: 0; padding: 24px 28px; text-align: center; }
+    .def-about-badge-num { font-family: var(--font-display); font-size: 44px; font-weight: 500; color: var(--brand-accent); line-height: 1; font-style: italic; }
+    .def-about-badge-label { font-size: 10px; color: var(--brand-muted); margin-top: 6px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .def-about-label { font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 18px; }
+    .def-about-heading { font-family: var(--font-display); font-size: clamp(32px, 4.5vw, 52px); font-weight: 500; line-height: 1.15; margin-bottom: 28px; letter-spacing: -0.005em; }
+    .def-about-body { font-size: 15px; color: rgba(247,242,234,0.85); line-height: 1.85; margin-bottom: 18px; font-weight: 400; }
+    .def-about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+    .def-about-value { display: flex; align-items: flex-start; gap: 12px; }
+    .def-about-value-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand-accent); flex-shrink: 0; margin-top: 8px; }
+    .def-about-value-text { font-size: 13px; color: var(--brand-text); font-weight: 400; letter-spacing: 0.04em; }
+    @media (max-width: 860px) { .def-about-grid { grid-template-columns: 1fr; gap: 48px; } .def-about-badge { right: 0; bottom: -16px; } }
+  </style>
+  <div class="def-about-grid">
+    <div class="def-about-img-wrap reveal">
+      <div class="def-about-img"><img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1200" alt="EBL atelier — camel leather craftsmanship" loading="lazy" /></div>
+      <div class="def-about-badge"><div class="def-about-badge-num">26+</div><div class="def-about-badge-label">Years of Craft</div></div>
+    </div>
+    <div>
+      <div class="def-about-label reveal">Our Story</div>
+      <h2 class="def-about-heading reveal section-headline">A house built from <em style="color:var(--brand-accent);">desert and patience.</em></h2>
+      <p class="def-about-body reveal">EBL began in a single workshop on the edge of the Liwa desert — one master, three apprentices, and a conviction that the camel hide, long overlooked, deserved to stand among the world's great leathers. Today our artisans honour that first stitch in every piece they finish.</p>
+      <p class="def-about-body reveal">We tan slowly with vegetable matter. We cut by hand. We refuse the shortcut. The result is not fashion. It is inheritance — leather that softens with each decade, carrying the hand of its maker and the warmth of the country that raised it.</p>
+      <div class="def-about-values reveal">
+        <div class="def-about-value"><div class="def-about-value-dot"></div><div class="def-about-value-text">Heritage Vegetable Tanning</div></div>
+        <div class="def-about-value"><div class="def-about-value-dot"></div><div class="def-about-value-text">Hand-Cut, Hand-Stitched</div></div>
+        <div class="def-about-value"><div class="def-about-value-dot"></div><div class="def-about-value-text">100% By-Product Hides</div></div>
+        <div class="def-about-value"><div class="def-about-value-dot"></div><div class="def-about-value-text">40+ Emirati Artisans</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="lux-divider"></div>
+
+  <!-- Section: Default Features Grid -->
+<section id="features" style="padding: 100px 5vw;">
+  <style>
+    .def-features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .def-feat-card { background: rgba(184,147,77,0.04); border: 1px solid rgba(184,147,77,0.18); border-radius: 0; padding: 40px 32px; transition: border-color 0.5s, transform 0.5s, background 0.5s; }
+    .def-feat-card:hover { border-color: rgba(184,147,77,0.5); background: rgba(184,147,77,0.07); transform: translateY(-4px); }
+    .def-feat-icon { width: 52px; height: 52px; background: rgba(184,147,77,0.10); border: 1px solid rgba(184,147,77,0.25); border-radius: 0; display: flex; align-items: center; justify-content: center; color: var(--brand-accent); margin-bottom: 28px; }
+    .def-feat-title { font-family: var(--font-display); font-size: 24px; font-weight: 500; margin-bottom: 14px; letter-spacing: 0.005em; }
+    .def-feat-desc { font-size: 14px; color: rgba(247,242,234,0.82); line-height: 1.8; font-weight: 400; }
+    @media (max-width: 900px) { .def-features-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .def-features-grid { grid-template-columns: 1fr; } }
+  </style>
+  <div style="text-align:center; margin-bottom:72px;">
+    <div class="section-label reveal">The Craft</div>
+    <h2 class="section-title reveal section-headline" style="text-align:center;">The Art of <span>Making</span></h2>
+    <p class="section-sub reveal" style="margin: 0 auto;">Every EBL piece passes through six pairs of hands across as many weeks. A slow grammar of choices — each one quiet, each one consequential.</p>
+  </div>
+  <div class="def-features-grid">
+    <div class="def-feat-card reveal"><div class="def-feat-icon"><i data-lucide="leaf" width="24" height="24"></i></div><div class="def-feat-title">Hide Selection</div><div class="def-feat-desc">Only the finest by-product hides from local Emirati farms — graded for grain, weight and integrity by our master tanner.</div></div>
+    <div class="def-feat-card reveal" style="transition-delay:0.08s;"><div class="def-feat-icon"><i data-lucide="droplet" width="24" height="24"></i></div><div class="def-feat-title">Vegetable Tanning</div><div class="def-feat-desc">Twelve weeks in pits of bark, sumac and date — a heritage process that yields a leather that warms and deepens with age.</div></div>
+    <div class="def-feat-card reveal" style="transition-delay:0.16s;"><div class="def-feat-icon"><i data-lucide="scissors" width="24" height="24"></i></div><div class="def-feat-title">Hand Cutting</div><div class="def-feat-desc">No die-press, no compromise. Each panel is read for its grain and cut by an artisan who has trained for over a decade.</div></div>
+    <div class="def-feat-card reveal" style="transition-delay:0.24s;"><div class="def-feat-icon"><i data-lucide="sparkles" width="24" height="24"></i></div><div class="def-feat-title">Master Finishing</div><div class="def-feat-desc">Edges painted in seven coats. Saddle-stitched at eight per inch. Burnished by hand until the leather sings.</div></div>
+    <div class="def-feat-card reveal" style="transition-delay:0.32s;"><div class="def-feat-icon"><i data-lucide="shield-check" width="24" height="24"></i></div><div class="def-feat-title">Inspection</div><div class="def-feat-desc">Three independent reviews before a piece leaves the atelier. If a single stitch is uncertain, the piece returns to the bench.</div></div>
+    <div class="def-feat-card reveal" style="transition-delay:0.40s;"><div class="def-feat-icon"><i data-lucide="gem" width="24" height="24"></i></div><div class="def-feat-title">Signature</div><div class="def-feat-desc">Each finished piece is hand-numbered and signed by its maker — a covenant between artisan and owner across the years.</div></div>
+  </div>
+</section>
+
+  <!-- Stats Band -->
+  <div class="lux-stats">
+    <div class="lux-stat reveal">
+      <div class="lux-stat-num" data-count="26">0</div>
+      <div class="lux-stat-label">Years of Craft</div>
+    </div>
+    <div class="lux-stat reveal">
+      <div class="lux-stat-num" data-count="40">0</div>
+      <div class="lux-stat-label">Master Artisans</div>
+    </div>
+    <div class="lux-stat reveal">
+      <div class="lux-stat-num" data-count="12">0</div>
+      <div class="lux-stat-label">Week Tanning Process</div>
+    </div>
+    <div class="lux-stat reveal">
+      <div class="lux-stat-num" data-count="3">0</div>
+      <div class="lux-stat-label">UAE Boutiques</div>
+    </div>
+  </div>
+
+  <div class="lux-divider"></div>
+
+  <!-- Section: Default Testimonials -->
+<section id="testimonials" style="padding: 100px 5vw; background: rgba(184,147,77,0.03);">
+  <style>
+    .def-test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .def-test-card { background: var(--brand-surface); border: 1px solid var(--brand-border); border-radius: 0; padding: 40px 32px; transition: border-color 0.5s; }
+    .def-test-card:hover { border-color: rgba(184,147,77,0.45); }
+    .def-test-stars { display: flex; gap: 4px; margin-bottom: 22px; color: var(--brand-accent); font-size: 14px; letter-spacing: 0.2em; }
+    .def-test-quote { font-family: var(--font-display); font-size: 19px; color: #F7F2EA; line-height: 1.6; margin-bottom: 28px; font-weight: 500; font-style: italic; }
+    .def-test-author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--brand-border); }
+    .def-test-avatar { width: 44px; height: 44px; border-radius: 50%; background: rgba(184,147,77,0.15); overflow: hidden; flex-shrink: 0; }
+    .def-test-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .def-test-name { font-size: 13px; font-weight: 500; font-family: var(--font-body); letter-spacing: 0.04em; }
+    .def-test-role { font-size: 11px; color: var(--brand-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
+    @media (max-width: 900px) { .def-test-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .def-test-grid { grid-template-columns: 1fr; } }
+  </style>
+  <div style="text-align:center; margin-bottom:72px;">
+    <div class="section-label reveal">Patrons</div>
+    <h2 class="section-title reveal section-headline" style="text-align:center;">In the words of <span>those who carry it</span></h2>
+    <p class="section-sub reveal" style="margin: 0 auto;">Collectors, diplomats and quiet connoisseurs — patrons of the house, gathered across two decades.</p>
+  </div>
+  <div class="def-test-grid">
+    <div class="def-test-card reveal">
+      <div class="def-test-stars">★★★★★</div>
+      <p class="def-test-quote">"My EBL satchel has crossed three continents and twelve years. The leather has only become more honest. It is the only bag I will ever need."</p>
+      <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Hamad Al Mazrouei" loading="lazy" /></div><div><div class="def-test-name">Hamad Al Mazrouei</div><div class="def-test-role">Collector, Abu Dhabi</div></div></div>
+    </div>
+    <div class="def-test-card reveal" style="transition-delay:0.08s;">
+      <div class="def-test-stars">★★★★★</div>
+      <p class="def-test-quote">"I have visited tanneries in Florence, Kyoto and Marrakesh. EBL stands quietly among them — and the camel leather is unlike anything I have held before."</p>
+      <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200" alt="Isabelle Moreau" loading="lazy" /></div><div><div class="def-test-name">Isabelle Moreau</div><div class="def-test-role">Editor, Paris</div></div></div>
+    </div>
+    <div class="def-test-card reveal" style="transition-delay:0.16s;">
+      <div class="def-test-stars">★★★★★</div>
+      <p class="def-test-quote">"We commissioned EBL for a private gifting programme. The atelier's discretion, patience and finish were extraordinary. They understand bespoke."</p>
+      <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200" alt="Khalid Al Suwaidi" loading="lazy" /></div><div><div class="def-test-name">Khalid Al Suwaidi</div><div class="def-test-role">Private Office, Dubai</div></div></div>
+    </div>
+    <div class="def-test-card reveal" style="transition-delay:0.24s;">
+      <div class="def-test-stars">★★★★★</div>
+      <p class="def-test-quote">"There is a softness to the grain that other leathers cannot reach. I purchased my first pair of Na'al six years ago and have since acquired four more."</p>
+      <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200" alt="Layla Al Hashimi" loading="lazy" /></div><div><div class="def-test-name">Layla Al Hashimi</div><div class="def-test-role">Architect, Sharjah</div></div></div>
+    </div>
+    <div class="def-test-card reveal" style="transition-delay:0.32s;">
+      <div class="def-test-stars">★★★★★</div>
+      <p class="def-test-quote">"To watch the artisans work is to understand why this is not a product but a small museum object. Time, made wearable."</p>
+      <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200" alt="James Whitfield" loading="lazy" /></div><div><div class="def-test-name">James Whitfield</div><div class="def-test-role">Curator, London</div></div></div>
+    </div>
+    <div class="def-test-card reveal" style="transition-delay:0.40s;">
+      <div class="def-test-stars">★★★★★</div>
+      <p class="def-test-quote">"Each piece arrives wrapped in muslin, hand-numbered. The ritual alone tells you what kind of house you are dealing with."</p>
+      <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200" alt="Noor Al Qubaisi" loading="lazy" /></div><div><div class="def-test-name">Noor Al Qubaisi</div><div class="def-test-role">Patron, Al Ain</div></div></div>
+    </div>
+  </div>
+</section>
+
+  <!-- Section: Default FAQ Accordion -->
+<section id="faq" style="padding: 100px 5vw; background: rgba(184,147,77,0.03);">
+  <style>
+    .def-faq-wrap { max-width: 800px; margin: 0 auto; }
+    .def-faq-item { border-bottom: 1px solid var(--brand-border); }
+    .def-faq-q { width: 100%; background: none; border: none; color: var(--brand-text); font-family: var(--font-display); font-size: 21px; font-weight: 500; text-align: left; padding: 28px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.3s; letter-spacing: 0.005em; }
+    .def-faq-q:hover { color: var(--brand-accent); }
+    .def-faq-icon { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--brand-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.3s, border-color 0.3s, transform 0.4s; color: var(--brand-accent); }
+    .def-faq-item.open .def-faq-icon { background: var(--brand-accent); border-color: var(--brand-accent); color: #0B0B0B; transform: rotate(45deg); }
+    .def-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.45s ease, padding 0.3s; }
+    .def-faq-item.open .def-faq-a { max-height: 400px; }
+    .def-faq-a-inner { padding-bottom: 28px; font-size: 15px; color: rgba(247,242,234,0.85); line-height: 1.85; font-weight: 400; max-width: 92%; }
+  </style>
+  <div style="text-align:center; margin-bottom:64px;">
+    <div class="section-label reveal">Enquiries</div>
+    <h2 class="section-title reveal section-headline" style="text-align:center;">Quiet <span>Questions</span></h2>
+    <p class="section-sub reveal" style="margin: 0 auto;">For matters not addressed here, our atelier concierge is available by appointment. We respond personally to every enquiry.</p>
+  </div>
+  <div class="def-faq-wrap">
+    <div class="def-faq-item reveal">
+      <button class="def-faq-q"><span>What makes camel leather different from other leathers?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
+      <div class="def-faq-a"><div class="def-faq-a-inner">Camel hide possesses a tensile strength roughly 50% greater than cowhide and an utterly distinctive grain — irregular, organic, never repeating. It softens dramatically with age while resisting abrasion, making it ideal for objects intended to outlive their owner.</div></div>
+    </div>
+    <div class="def-faq-item reveal">
+      <button class="def-faq-q"><span>Is your leather ethically sourced?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
+      <div class="def-faq-a"><div class="def-faq-a-inner">Without exception. EBL works exclusively with by-product hides from local Emirati farms — never raised for leather. Our vegetable tanning process produces zero chemical runoff, and every artisan is employed on full-time, fairly compensated terms within the UAE.</div></div>
+    </div>
+    <div class="def-faq-item reveal">
+      <button class="def-faq-q"><span>How long does a bespoke commission take?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
+      <div class="def-faq-a"><div class="def-faq-a-inner">Bespoke pieces require between eight and sixteen weeks depending on complexity. The process begins with a private consultation at our Abu Dhabi atelier or by video, followed by sketches, leather selection, prototyping, and final hand-finishing.</div></div>
+    </div>
+    <div class="def-faq-item reveal">
+      <button class="def-faq-q"><span>Where can I see and handle the collections in person?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
+      <div class="def-faq-a"><div class="def-faq-a-inner">Our boutiques are located at Dalma Mall (Abu Dhabi), Bawadi Mall (Al Ain), and the Sheikh Zayed Grand Mosque Cultural Centre. Private viewings at our atelier may be arranged by appointment.</div></div>
+    </div>
+    <div class="def-faq-item reveal">
+      <button class="def-faq-q"><span>Do you ship internationally?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
+      <div class="def-faq-a"><div class="def-faq-a-inner">Yes. EBL ships worldwide via insured courier, with each piece hand-wrapped in muslin and presented in our signature wooden case. International orders include all duties and arrive within seven to ten working days.</div></div>
+    </div>
+    <div class="def-faq-item reveal">
+      <button class="def-faq-q"><span>How do I care for my EBL piece?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
+      <div class="def-faq-a"><div class="def-faq-a-inner">Each piece arrives with our care guide and a small vial of conditioning balm. We recommend avoiding direct sun exposure, conditioning twice yearly, and returning the piece to our atelier every five years for complimentary restoration.</div></div>
+    </div>
+    <div class="def-faq-item reveal">
+      <button class="def-faq-q"><span>Do you offer corporate gifting and private label?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
+      <div class="def-faq-a"><div class="def-faq-a-inner">We do. EBL works with private offices, government bodies and luxury brands on bespoke gifting programmes, embossed editions and custom collections. Minimum orders begin at twenty pieces.</div></div>
+    </div>
+    <div class="def-faq-item reveal">
+      <button class="def-faq-q"><span>What is your return and lifetime service policy?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
+      <div class="def-faq-a"><div class="def-faq-a-inner">Pieces may be returned within thirty days, unworn and in original condition. More importantly, every EBL object carries a lifetime service covenant — restitching, edge restoration and conditioning, performed by the original artisan whenever possible.</div></div>
+    </div>
+  </div>
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.def-faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.def-faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+  </script>
+</section>
+
+  <div class="lux-divider"></div>
+
+  <!-- Contact / Lead Form -->
+  <section id="contact" style="background: rgba(184,147,77,0.04);">
+    <div style="text-align:center; margin-bottom:56px;">
+      <div class="section-label reveal">Contact</div>
+      <h2 class="section-title reveal section-headline" style="text-align:center;">Send an <span>Enquiry</span></h2>
+      <p class="section-sub reveal" style="margin: 0 auto;">For private viewings, bespoke commissions, corporate programmes or simply a conversation about the craft — we welcome your message.</p>
+    </div>
+    <div class="form-section reveal">
+      <form id="lead-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" name="name" placeholder="Your first name" required />
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="+971 50 000 0000" />
+          </div>
+          <div class="form-group">
+            <label>Enquiry Type</label>
+            <select name="subject">
+              <option value="">Select...</option>
+              <option>Private Viewing</option>
+              <option>Bespoke Commission</option>
+              <option>Corporate &amp; Gifting</option>
+              <option>Press &amp; Editorial</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Message *</label>
+            <textarea name="message" placeholder="Tell us how we may be of service..." required></textarea>
+          </div>
+        </div>
+        <button type="button" class="form-submit">Send Enquiry</button>
+        <p class="form-note">Our atelier responds personally within 24 hours.</p>
+      </form>
+      <div id="lead-success" style="display:none; flex-direction:column; align-items:center; gap:16px; padding:40px 0; text-align:center;">
+        <i data-lucide="check-circle" style="width:48px;height:48px;color:var(--brand-accent);"></i>
+        <h3 style="font-family:var(--font-display);font-size:2rem;font-weight:500;color:var(--brand-text);">Message received.</h3>
+        <p style="color:var(--brand-muted);">We will be in touch shortly.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">EBL</a>
+        <p>Where Emirati heritage meets enduring craftsmanship.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i data-lucide="instagram" width="16" height="16"></i></a>
+          <a href="#" class="social-link"><i data-lucide="twitter" width="16" height="16"></i></a>
+          <a href="#" class="social-link"><i data-lucide="linkedin" width="16" height="16"></i></a>
+          <a href="#" class="social-link"><i data-lucide="facebook" width="16" height="16"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Collections</h4><ul><li><a href="#features">Arabic Sandals</a></li><li><a href="#features">Leather Bags</a></li><li><a href="#features">Accessories</a></li><li><a href="#features">Signature Pieces</a></li></ul></div>
+      <div class="footer-col"><h4>House</h4><ul><li><a href="#about">Our Story</a></li><li><a href="#features">The Craft</a></li><li><a href="#">Boutiques</a></li><li><a href="#contact">Bespoke</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="#contact">Contact</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Care Guide</a></li><li><a href="#">Privacy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 EBL. All rights reserved.</span><span>Abu Dhabi, United Arab Emirates</span></div>
+  </footer>
+
+  <div class="mobile-cta-bar">
+    <a href="#contact" class="btn-primary">Send Enquiry</a>
+  </div>
+
+  <script>
+    (function(){
+      var abar = document.getElementById('announcement-bar');
+      if (abar) {
+        var txt = abar.textContent || '';
+        if (!txt.trim() || txt.includes('{{')) abar.style.display = 'none';
+      }
+    })();
+    document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
+    const revealObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-revealed'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', closeMobileMenu);
+    function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+    async function submitLeadForm() {
+      var form = document.getElementById('lead-form');
+      var btn = form ? form.querySelector('button[onclick], .form-submit, button[type="button"]') : null;
+      if (!form || !btn) return;
+      var data = {};
+      form.querySelectorAll('input,textarea,select').forEach(function(el) { if (el.name && el.value) data[el.name] = el.value; });
+      var standardKeys = ['name','email','phone','message'];
+      var extras = Object.keys(data).filter(function(k){ return standardKeys.indexOf(k)===-1; }).map(function(k){ return k+': '+data[k]; }).join('\n');
+      if (extras) data.message = (data.message ? data.message + '\n---\n' : '') + extras;
+      btn.disabled = true; btn.textContent = 'Sending...';
+      try {
+        var siteId = (document.querySelector('meta[name="draftly-site-id"]') || {}).content || '';
+        await fetch('https://draftly.space/api/sites/' + siteId + '/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.assign({}, data, { source: 'contact_form', page: window.location.pathname }))
+        });
+        form.style.display = 'none';
+        var s = document.getElementById('lead-success');
+        if (s) { s.style.display = 'flex'; if (window.lucide) lucide.createIcons(); }
+      } catch(e) {
+        btn.disabled = false;
+        btn.textContent = 'Send Enquiry';
+      }
+    }
+  </script>
+
+
+
+<script>/* ─── Draftly Scroll Engine — injected before <script id="draftly-announcement-init">
+(function(){
+  var bar=document.getElementById('announcement-bar');
+  var textEl=document.getElementById('announcement-text')||bar;
+  if(!bar||!textEl)return;
+  if(!textEl.textContent.trim()||textEl.textContent.includes('{{')){bar.style.display='none';}
+})();
+</script>
+
+<script id="__draftly_frame_loader_patched">
+(function(){
+  // ══ ENHANCED SCROLL FRAME ENGINE — 300 HQ frames + gold color grade ══
+  const TOTAL_FRAMES = window.__FRAME_DATA_URLS ? window.__FRAME_DATA_URLS.length : 300;
+  const LERP_SPEED = 0.10;          // smoother interpolation
+  const FRAME_PHASE = 0.55;         // video plays over 55% of scroll
+  const images = new Array(TOTAL_FRAMES);
+  let currentFrame = 0, targetFrame = 0, loaded = 0, isReady = false, maxLoadedIndex = -1;
+  let lastDrawnIdx = -1;
+
+  function framePath(i){ return 'frames-jpg/frame_' + String(i+1).padStart(6,'0') + '.jpg'; }
+
+  const loaderEl = document.getElementById('loader');
+  const barEl = document.getElementById('loader-bar');
+
+  function onFrameLoad(){ loaded++; if(barEl) barEl.style.width = (loaded/TOTAL_FRAMES*100)+'%'; if(loaded >= TOTAL_FRAMES){ isReady = true; if(loaderEl) loaderEl.style.display='none'; } }
+
+  // Priority loading: load first 20 frames immediately, rest after
+  function loadFrames(){
+    for(let i=0;i<TOTAL_FRAMES;i++){
+      images[i] = new Image();
+      const idx = i;
+      images[i].onload = function(){ maxLoadedIndex = Math.max(maxLoadedIndex, idx); onFrameLoad(); };
+      images[i].onerror = function(){ maxLoadedIndex = Math.max(maxLoadedIndex, idx); onFrameLoad(); };
+    }
+    // Load first 20 frames immediately for fast hero display
+    for(let i=0;i<Math.min(20,TOTAL_FRAMES);i++){
+      images[i].src = window.__FRAME_DATA_URLS ? window.__FRAME_DATA_URLS[i] : framePath(i);
+    }
+    // Load rest in batches to avoid network congestion
+    let batch = 20;
+    function loadBatch(){
+      const end = Math.min(batch+30, TOTAL_FRAMES);
+      for(let i=batch;i<end;i++){
+        images[i].src = window.__FRAME_DATA_URLS ? window.__FRAME_DATA_URLS[i] : framePath(i);
+      }
+      batch = end;
+      if(batch < TOTAL_FRAMES) setTimeout(loadBatch, 50);
+    }
+    setTimeout(loadBatch, 100);
+  }
+  loadFrames();
+
+  const canvas = document.getElementById('bgCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize(){
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = window.innerWidth||1920;
+    const h = window.innerHeight||1080;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.transform = 'none';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    lastDrawnIdx = -1; // force redraw
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // ── Gold color grade + cinematic vignette applied on canvas ──
+  function drawFrame(img){
+    if(!img||!img.naturalWidth) return;
+    const cw = canvas.width / (Math.min(window.devicePixelRatio||1,2));
+    const ch = canvas.height / (Math.min(window.devicePixelRatio||1,2));
+    if(cw<10||ch<10) return;
+
+    ctx.clearRect(0,0,cw,ch);
+
+    // Draw the frame (cover fit)
+    const scale = Math.max(cw/img.naturalWidth, ch/img.naturalHeight);
+    const w = img.naturalWidth*scale, h = img.naturalHeight*scale;
+    ctx.drawImage(img, (cw-w)/2, (ch-h)/2, w, h);
+
+    // ── Gold Sand Color Grade ──
+    // Warm golden overlay (multiply-like blend)
+    ctx.globalCompositeOperation = 'overlay';
+    ctx.fillStyle = 'rgba(184, 147, 77, 0.12)';
+    ctx.fillRect(0, 0, cw, ch);
+
+    // Warm highlights
+    ctx.globalCompositeOperation = 'soft-light';
+    ctx.fillStyle = 'rgba(212, 175, 106, 0.15)';
+    ctx.fillRect(0, 0, cw, ch);
+
+    // Slight warm tint in shadows
+    ctx.globalCompositeOperation = 'color';
+    ctx.fillStyle = 'rgba(140, 100, 40, 0.06)';
+    ctx.fillRect(0, 0, cw, ch);
+
+    // ── Cinematic Vignette ──
+    ctx.globalCompositeOperation = 'source-over';
+    const vigGrad = ctx.createRadialGradient(cw/2, ch/2, cw*0.25, cw/2, ch/2, cw*0.85);
+    vigGrad.addColorStop(0, 'rgba(0,0,0,0)');
+    vigGrad.addColorStop(0.6, 'rgba(0,0,0,0)');
+    vigGrad.addColorStop(1, 'rgba(0,0,0,0.45)');
+    ctx.fillStyle = vigGrad;
+    ctx.fillRect(0, 0, cw, ch);
+
+    // ── Subtle gold light leak from top-right ──
+    ctx.globalCompositeOperation = 'screen';
+    const leakGrad = ctx.createRadialGradient(cw*0.85, ch*0.1, 0, cw*0.85, ch*0.1, cw*0.5);
+    leakGrad.addColorStop(0, 'rgba(184,147,77,0.08)');
+    leakGrad.addColorStop(0.5, 'rgba(184,147,77,0.03)');
+    leakGrad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = leakGrad;
+    ctx.fillRect(0, 0, cw, ch);
+
+    // Reset composite
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
+  function pageScroll01(){
+    const el=document.documentElement; const body=document.body;
+    const sh=Math.max(el?el.scrollHeight:0, body?body.scrollHeight:0, el?el.offsetHeight:0);
+    const vh=window.innerHeight||(el?el.clientHeight:0)||1;
+    let maxScroll=Math.max(sh-vh,1);
+    let y=window.scrollY!=null?window.scrollY:(el?el.scrollTop:0);
+    return Math.min(Math.max(y/maxScroll,0),1);
+  }
+  function getFrameScrubT(){
+    const p=pageScroll01();
+    if(p<=FRAME_PHASE) return p/FRAME_PHASE;
+    return 1;
+  }
+
+  window.__currentFrame = 0;
+
+  function animate(){
+    if(maxLoadedIndex>=0 || isReady){
+      const t=getFrameScrubT();
+      targetFrame=Math.min(Math.floor(t*(TOTAL_FRAMES-1)), maxLoadedIndex>=0?maxLoadedIndex:TOTAL_FRAMES-1);
+      currentFrame += (targetFrame-currentFrame)*LERP_SPEED;
+      const idx=Math.round(currentFrame);
+
+      // Only redraw if frame changed (performance)
+      if(idx !== lastDrawnIdx && images[idx] && images[idx].complete){
+        drawFrame(images[idx]);
+        lastDrawnIdx = idx;
+      }
+      window.__currentFrame = idx;
+
+      const fillP=Math.max(0,Math.min(1,(pageScroll01()-0.9)/0.1));
+      const fill=document.getElementById('liquidFill');
+      const bar=document.getElementById('scrollProgressBar');
+      if(fill){ fill.style.height=(fillP*100)+'vh'; fill.style.borderTopLeftRadius=((1-fillP)*100)+'%'; fill.style.borderTopRightRadius=((1-fillP)*100)+'%'; }
+      if(bar) bar.style.width=(pageScroll01()*100)+'%';
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+})();
+</script>
+<script id="draftly-template-bg-suppress">(function(){
+  function suppress(){var s=document.createElement('style');s.textContent='.hero-bg{background-image:none!important;opacity:0!important;}.hero{background:transparent!important;}';document.head.appendChild(s);}
+  // Only hide static hero-bg when real frames are present (builder preview / after video publish)
+  if(window.__FRAME_DATA_URLS&&window.__FRAME_DATA_URLS.length>0){suppress();}
+  else{document.addEventListener('draftly:framesReady',suppress,{once:true});}
+})();</script>
+<script data-draftly-splittext-init="1">
+(function() {
+  // Pattern 3 — Mandatory SplitText headline reveals
+  // Runs after DOM ready; idempotent (skips if already initialised)
+  function draftlySplitTextInit() {
+    if (!window.gsap || !window.SplitText || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    document.querySelectorAll('.section-headline, h1[id="heroHeadline"]').forEach(function(el) {
+      if (el.dataset.splitDone) return;
+      el.dataset.splitDone = '1';
+
+      var isHero = el.id === 'heroHeadline';
+
+      if (isHero) {
+        // Hero: simple fade-in + translateY (no char scramble)
+        gsap.fromTo(el,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'cubic-bezier(0.16,1,0.3,1)', delay: 0.2 }
+        );
+        return;
+      }
+
+      // Section headlines: character-by-character reveal on scroll
+      var split = new SplitText(el, { type: 'words,chars' });
+      gsap.from(split.chars, {
+        opacity: 0,
+        y: 60,
+        rotateX: -80,
+        stagger: 0.022,
+        duration: 0.7,
+        ease: 'back.out(1.2)',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 78%',
+          toggleActions: 'play none none reverse',
+        },
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', draftlySplitTextInit);
+  } else {
+    // Small RAF delay so GSAP has time to register itself if loaded async
+    requestAnimationFrame(function() { setTimeout(draftlySplitTextInit, 0); });
+  }
+
+  // Accessibility: disable all animations when prefers-reduced-motion is set
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.section-headline, [data-depth]').forEach(function(el) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+})();
+</script>
+<script data-draftly-depth-parallax="1">
+(function() {
+  // Pattern 4 — Depth Parallax Stack (passive, no scroll proxy)
+  function draftlyDepthParallax() {
+    var els = document.querySelectorAll('[data-depth]');
+    if (!els.length) return;
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        var sy = window.scrollY;
+        els.forEach(function(el) {
+          var depth = parseFloat(el.getAttribute('data-depth') || '0');
+          el.style.transform = 'translateY(' + (sy * depth * 0.35) + 'px)';
+        });
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', draftlyDepthParallax);
+  } else {
+    draftlyDepthParallax();
+  }
+})();
+</script>
+<script data-draftly-io-reveal="1">
+(function() {
+  // Pattern 4b — IntersectionObserver entrance for sections and cards
+  // Adds .is-revealed when element enters viewport
+  var style = document.createElement('style');
+  style.textContent = [
+    '.reveal-on-scroll{opacity:0;transform:translateY(36px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1);}',
+    '.reveal-on-scroll.is-revealed{opacity:1;transform:none;}',
+    '@media(prefers-reduced-motion:reduce){.reveal-on-scroll{opacity:1;transform:none;transition:none;}}'
+  ].join('');
+  document.head.appendChild(style);
+
+  function draftlyIOReveal() {
+    if (!window.IntersectionObserver) return;
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-revealed');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+
+    // Auto-wire all major sections and cards that don't already have is-revealed
+    document.querySelectorAll('section, .card, .feature-card, .bento-tile, .stat-block, .testimonial, .pricing-card').forEach(function(el) {
+      if (!el.classList.contains('is-revealed') && !el.classList.contains('no-reveal')) {
+        el.classList.add('reveal-on-scroll');
+        obs.observe(el);
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', draftlyIOReveal);
+  } else {
+    requestAnimationFrame(draftlyIOReveal);
+  }
+})();
+</script>
+<script data-draftly-hamburger-js="1">
+(function(){
+  function initHamburger() {
+    var btn  = document.querySelector('.nav-hamburger');
+    var menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var isOpen = menu.style.display === 'flex' || menu.classList.contains('is-open');
+      if (isOpen) {
+        menu.style.display = 'none';
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      } else {
+        menu.style.display = 'flex';
+        menu.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+    // Close when any mobile link is clicked
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.style.display = 'none';
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+    // Close on ESC
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && menu.style.display === 'flex') {
+        menu.style.display = 'none';
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHamburger);
+  } else {
+    initHamburger();
+  }
+})();
+</script>
+<script data-draftly-leads-init="1">
+(function(){
+  var h=window.location.hostname;
+  var meta=document.querySelector("meta[name=\"draftly-site-id\"]");
+  var sid=(meta&&meta.content)||h.replace(/[.]draftly[.]space$/,"");
+  var live=h.indexOf(".draftly.space")>0;
+  var API="https://draftly.space/api/sites/"+sid+"/leads";
+  function ok(c){c.innerHTML="<div style=\"text-align:center;padding:32px;\"><div style=\"font-size:2rem;\">&#10003;</div><p style=\"font-weight:600;\">Thank you!</p><p style=\"opacity:0.6;font-size:0.9rem;\">We will be in touch soon.</p></div>";}
+  function grab(c){
+    var d={};
+    if(c.tagName==="FORM"){new FormData(c).forEach(function(v,k){if(k)d[k]=v;});}
+    c.querySelectorAll("input,textarea,select").forEach(function(el){
+      var k=(el.name||el.id||el.placeholder||"").toLowerCase().replace(/[^a-z0-9]/g,"_");
+      if(k&&el.value)d[k]=el.value;
+    });
+    var keys=Object.keys(d);
+    function pick(s){var k=keys.find(function(k){return k.indexOf(s)>=0;});return k?d[k]:"";}
+    d.name=pick("name");d.email=pick("email");d.phone=pick("phone")||pick("mobile")||pick("tel");
+    d.message=pick("message")||pick("msg")||pick("inquiry")||pick("enquiry")||pick("detail");
+    return d;
+  }
+  function cont(btn){
+    var el=btn;
+    for(var i=0;i<8;i++){
+      el=el.parentElement;
+      if(!el)break;
+      if(el.tagName==="FORM")return el;
+      if(el.querySelectorAll("input,textarea").length>=2)return el;
+    }
+    return btn.closest("section")||btn.closest("div");
+  }
+  function send(c,btn,orig){
+    var d=grab(c);
+    if(!live){setTimeout(function(){ok(c);},600);return;}
+    fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})
+      .then(function(r){if(r.ok){ok(c);}else{btn.disabled=false;btn.textContent=orig;}})
+      .catch(function(){btn.disabled=false;btn.textContent=orig;});
+  }
+  function wire(btn){
+    if(btn.dataset.dlw)return;btn.dataset.dlw="1";
+    btn.addEventListener("click",function(e){
+      var c=cont(btn);if(!c)return;
+      var inputs=c.querySelectorAll("input:not([type=hidden]):not([type=submit]):not([type=button]),textarea");
+      if(inputs.length<1)return;
+      e.preventDefault();e.stopPropagation();
+      var orig=btn.textContent;btn.disabled=true;btn.textContent="Sending...";
+      send(c,btn,orig);
+    });
+  }
+  function init(){
+    document.querySelectorAll("form").forEach(function(f){
+      if(f.dataset.dlf)return;f.dataset.dlf="1";
+      f.addEventListener("submit",function(e){
+        e.preventDefault();
+        var btn=f.querySelector("button[type=submit],button:not([type=button])");
+        var orig=btn?btn.textContent:"";
+        if(btn){btn.disabled=true;btn.textContent="Sending...";}
+        send(f,btn||{disabled:false,textContent:""},orig);
+      });
+    });
+    document.querySelectorAll("button,input[type=submit]").forEach(function(btn){
+      var t=(btn.textContent||btn.value||"").toLowerCase();
+      if(/send|submit|inquir|contact|book|request|apply/.test(t))wire(btn);
+    });
+  }
+  if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",init);}else{init();}
+})();
+</script>
+<script data-luxury-animations="1">
+(function() {
+  // ══ PREMIUM LUXURY ANIMATION ENGINE v2 ══
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Custom Cursor with smooth follow ──
+  (function initCursor() {
+    if (prefersReduced || window.innerWidth <= 900) return;
+    var cursor = document.getElementById('luxCursor');
+    var ring = document.getElementById('luxCursorRing');
+    if (!cursor || !ring) return;
+    var cx = 0, cy = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      cx = e.clientX; cy = e.clientY;
+      cursor.style.transform = 'translate(' + (cx - 6) + 'px,' + (cy - 6) + 'px)';
+    }, { passive: true });
+    (function animateRing() {
+      rx += (cx - rx) * 0.1;
+      ry += (cy - ry) * 0.1;
+      ring.style.transform = 'translate(' + (rx - 22) + 'px,' + (ry - 22) + 'px)';
+      requestAnimationFrame(animateRing);
+    })();
+    var hoverTargets = 'a, button, .btn-primary, .btn-ghost, .nav-cta, .def-feat-card, .def-test-card, .social-link, input, textarea, select';
+    document.addEventListener('mouseover', function(e) {
+      if (e.target.closest(hoverTargets)) { cursor.classList.add('hover'); ring.classList.add('hover'); }
+    }, { passive: true });
+    document.addEventListener('mouseout', function(e) {
+      if (e.target.closest(hoverTargets)) { cursor.classList.remove('hover'); ring.classList.remove('hover'); }
+    }, { passive: true });
+  })();
+
+  // ── Scroll Progress Bar ──
+  (function() {
+    var bar = document.getElementById('luxScrollProgress');
+    if (!bar) return;
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    }, { passive: true });
+  })();
+
+  // ── Background Overlay ──
+  (function() {
+    var overlay = document.getElementById('luxBgOverlay');
+    if (!overlay) return;
+    window.addEventListener('scroll', function() {
+      var vh = window.innerHeight;
+      var progress = Math.min(window.scrollY / (vh * 0.8), 1);
+      overlay.style.opacity = 0.15 + progress * 0.75;
+    }, { passive: true });
+  })();
+
+  // ── Gold Particles ──
+  (function() {
+    if (prefersReduced) return;
+    var container = document.getElementById('luxParticles');
+    if (!container) return;
+    for (var i = 0; i < 22; i++) {
+      var p = document.createElement('div');
+      p.className = 'lux-particle';
+      var size = 1 + Math.random() * 3;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (14 + Math.random() * 22) + 's';
+      p.style.animationDelay = Math.random() * 18 + 's';
+      p.style.opacity = '0';
+      container.appendChild(p);
+    }
+  })();
+
+  // ── Nav Scroll ──
+  (function() {
+    var nav = document.getElementById('site-nav');
+    if (!nav) return;
+    var scrolled = false;
+    window.addEventListener('scroll', function() {
+      var s = window.scrollY > 60;
+      if (s !== scrolled) { scrolled = s; nav.classList.toggle('scrolled', s); }
+    }, { passive: true });
+  })();
+
+  // ── Hero Entrance ──
+  (function() {
+    var heroContent = document.querySelector('.hero-content');
+    if (!heroContent) return;
+    heroContent.style.opacity = '1';
+    if (prefersReduced) return;
+    requestAnimationFrame(function() { heroContent.classList.add('animate-in'); });
+  })();
+
+  // ── Hero Scroll Parallax + Fade ──
+  (function() {
+    if (prefersReduced) return;
+    var hero = document.querySelector('.hero-content');
+    var hint = document.querySelector('.lux-scroll-hint');
+    if (!hero) return;
+    window.addEventListener('scroll', function() {
+      var sy = window.scrollY;
+      var vh = window.innerHeight;
+      if (sy < vh) {
+        hero.style.transform = 'translateY(' + (sy * 0.25) + 'px)';
+        hero.style.opacity = Math.max(1 - sy / (vh * 0.7), 0);
+        if (hint) hint.style.opacity = Math.max(1 - sy / (vh * 0.3), 0);
+      }
+    }, { passive: true });
+  })();
+
+  // ── Image Reveal Wipe ──
+  (function() {
+    if (prefersReduced) return;
+    var img = document.querySelector('.def-about-img');
+    if (!img) return;
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { setTimeout(function() { img.classList.add('revealed'); }, 300); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(img);
+  })();
+
+  // ── Section Dividers ──
+  (function() {
+    if (prefersReduced) return;
+    var dividers = document.querySelectorAll('.lux-divider');
+    if (!dividers.length) return;
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('animate'); obs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    dividers.forEach(function(d) { obs.observe(d); });
+  })();
+
+  // ── Stats Band Counter Animation ──
+  (function() {
+    if (prefersReduced) return;
+    var statNums = document.querySelectorAll('.lux-stat-num[data-count]');
+    if (!statNums.length) return;
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var el = e.target;
+          var target = parseInt(el.getAttribute('data-count'), 10);
+          var suffix = target > 10 ? '+' : '';
+          var duration = 2200;
+          var startTime = null;
+          function step(ts) {
+            if (!startTime) startTime = ts;
+            var progress = Math.min((ts - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+    statNums.forEach(function(el) { obs.observe(el); });
+  })();
+
+  // ── About Badge Counter ──
+  (function() {
+    if (prefersReduced) return;
+    var badge = document.querySelector('.def-about-badge-num');
+    if (!badge) return;
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var duration = 2000, startTime = null;
+          function step(ts) {
+            if (!startTime) startTime = ts;
+            var p = Math.min((ts - startTime) / duration, 1);
+            badge.textContent = Math.round((1 - Math.pow(1 - p, 3)) * 26) + '+';
+            if (p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    obs.observe(badge);
+  })();
+
+  // ── GSAP Premium Animations ──
+  (function() {
+    if (prefersReduced) return;
+    function waitGsap(attempts) {
+      if (attempts <= 0) return;
+      if (!window.gsap || !window.ScrollTrigger) { setTimeout(function() { waitGsap(attempts - 1); }, 200); return; }
+
+      // Feature cards — staggered rise
+      gsap.from('.def-feat-card', {
+        scrollTrigger: { trigger: '.def-features-grid', start: 'top 82%' },
+        y: 70, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out'
+      });
+
+      // Testimonial cards
+      gsap.from('.def-test-card', {
+        scrollTrigger: { trigger: '.def-test-grid', start: 'top 82%' },
+        y: 50, opacity: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out'
+      });
+
+      // FAQ items
+      gsap.from('.def-faq-item', {
+        scrollTrigger: { trigger: '.def-faq-wrap', start: 'top 82%' },
+        x: -30, opacity: 0, duration: 0.6, stagger: 0.06, ease: 'power2.out'
+      });
+
+      // About values
+      gsap.from('.def-about-value', {
+        scrollTrigger: { trigger: '.def-about-values', start: 'top 85%' },
+        y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out'
+      });
+
+      // Stats band
+      gsap.from('.lux-stat', {
+        scrollTrigger: { trigger: '.lux-stats', start: 'top 85%' },
+        y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out'
+      });
+
+      // Contact form
+      gsap.from('.form-section', {
+        scrollTrigger: { trigger: '.form-section', start: 'top 85%' },
+        y: 60, opacity: 0, duration: 1.1, ease: 'power3.out'
+      });
+
+      // Trust items float
+      gsap.to('.trust-item', {
+        y: -3, duration: 2.8, repeat: -1, yoyo: true, stagger: 0.25, ease: 'sine.inOut'
+      });
+
+      // Hero badge glow
+      gsap.to('.hero-badge', {
+        boxShadow: '0 0 30px rgba(184,147,77,0.2)',
+        duration: 2.5, repeat: -1, yoyo: true, ease: 'sine.inOut'
+      });
+
+      // About image parallax
+      gsap.to('.def-about-img img', {
+        scrollTrigger: { trigger: '.def-about-img', start: 'top bottom', end: 'bottom top', scrub: 1.5 },
+        y: -50, ease: 'none'
+      });
+
+      // Marquee — speed up on scroll
+      gsap.to('.lux-marquee-track', {
+        scrollTrigger: {
+          trigger: '.lux-marquee', start: 'top bottom', end: 'bottom top', scrub: 1
+        },
+        x: -100, ease: 'none'
+      });
+
+      // Footer columns
+      gsap.from('.footer-grid > *', {
+        scrollTrigger: { trigger: '.footer-grid', start: 'top 90%' },
+        y: 30, opacity: 0, duration: 0.8, stagger: 0.08, ease: 'power2.out'
+      });
+
+      // Section labels — horizontal line effect
+      gsap.from('.section-label', {
+        scrollTrigger: { trigger: '.section-label', start: 'top 85%' },
+        x: -20, opacity: 0, duration: 0.6, ease: 'power2.out'
+      });
+    }
+    waitGsap(30);
+  })();
+
+  // ── Magnetic Buttons ──
+  (function() {
+    if (prefersReduced || window.innerWidth <= 900) return;
+    document.querySelectorAll('.btn-primary, .btn-ghost, .nav-cta').forEach(function(btn) {
+      btn.addEventListener('mousemove', function(e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = 'translate(' + (x * 0.12) + 'px,' + (y * 0.12) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function() { btn.style.transform = ''; });
+    });
+  })();
+
+  // ── Smooth anchor scrolling (bypass native for smoother feel) ──
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Close mobile menu if open
+      var menu = document.getElementById('mobileMenu');
+      if (menu) { menu.style.display = 'none'; menu.classList.remove('is-open'); document.body.style.overflow = ''; }
+    });
+  });
+
+  // ── FAQ click handler ──
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.def-faq-q');
+    if (!btn) return;
+    var item = btn.closest('.def-faq-item');
+    if (!item) return;
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.def-faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  });
+})();
+</script>
+<script data-draftly-edit-interceptor="1">
+(function() {
+  // Only active inside the builder preview iframe — never on published sites
+  if (window.parent === window) return;
+
+  var EDIT_SELECTORS = 'h1,h2,h3,h4,h5,p,a,button,span[class*="headline"],span[class*="title"],span[class*="cta"],[data-edit]';
+
+  function getBounds(el) {
+    var r = el.getBoundingClientRect();
+    return { top: r.top, left: r.left, width: r.width, height: r.height };
+  }
+
+  // Hover: text elements
+  document.addEventListener('mouseover', function(e) {
+    var text = e.target.closest(EDIT_SELECTORS);
+    if (text) {
+      window.parent.postMessage({
+        type: 'draftly-hover-text',
+        id: text.id || '',
+        tag: text.tagName,
+        bounds: getBounds(text),
+      }, '*');
+      return;
+    }
+    var img = e.target.closest('img');
+    if (img) {
+      window.parent.postMessage({
+        type: 'draftly-hover-image',
+        id: img.id || img.src.slice(-20),
+        src: img.src,
+        bounds: getBounds(img),
+      }, '*');
+    }
+  }, { capture: true, passive: true });
+
+  // Click: only fires when edit mode is active (set via postMessage from parent)
+  var editModeActive = false;
+  window.addEventListener('message', function(e) {
+    if (!e.data) return;
+    var d = e.data;
+
+    // Toggle edit mode
+    if (d.type === 'draftly-set-edit-mode') {
+      editModeActive = !!d.active;
+      document.body.dataset.draftlyEditMode = editModeActive ? '1' : '';
+      return;
+    }
+
+    // Live style preview — apply styles directly to the DOM element without
+    // reloading the iframe. Called on every slider/picker change in the editor.
+    if (d.type === 'draftly-live-style') {
+      var el = document.getElementById(d.id);
+      if (!el || !d.styles) return;
+      Object.keys(d.styles).forEach(function(prop) {
+        el.style.setProperty(prop, d.styles[prop], 'important');
+      });
+      return;
+    }
+
+    // Live text preview — update element text as the user types in the editor.
+    if (d.type === 'draftly-live-text') {
+      var elT = document.getElementById(d.id);
+      if (!elT) return;
+      elT.innerText = d.text;
+      return;
+    }
+
+    // Revert — restore the element's original style attribute on Cancel.
+    if (d.type === 'draftly-revert-style') {
+      var elR = document.getElementById(d.id);
+      if (!elR) return;
+      if (d.originalStyle) {
+        elR.setAttribute('style', d.originalStyle);
+      } else {
+        elR.removeAttribute('style');
+      }
+      return;
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!editModeActive) return;
+    var text = e.target.closest(EDIT_SELECTORS);
+    if (text) {
+      e.preventDefault();
+      e.stopPropagation();
+      // Ensure the element has an id so the parent can patch it by id.
+      // If it's missing one, assign a stable id and tell the parent to inject it
+      // into the HTML source so style patches can find it.
+      if (!text.id) {
+        var newId = 'dle-' + Math.random().toString(36).slice(2, 8);
+        text.id = newId;
+        // Ask the parent to write the id attribute into the HTML string as well.
+        window.parent.postMessage({
+          type: 'draftly-inject-id',
+          tag: text.tagName.toLowerCase(),
+          text: text.innerText.slice(0, 80),
+          newId: newId,
+        }, '*');
+      }
+      // Capture fresh bounds + computed styles + original style attr at click time.
+      // originalStyle lets the parent revert the live DOM on Cancel.
+      var cs = window.getComputedStyle(text);
+      window.parent.postMessage({
+        type: 'draftly-click-text',
+        id: text.id,
+        tag: text.tagName,
+        text: text.innerText,
+        bounds: getBounds(text),
+        originalStyle: text.getAttribute('style') || '',
+        computedStyle: {
+          color: cs.color,
+          fontSize: cs.fontSize,
+          fontFamily: cs.fontFamily,
+          fontWeight: cs.fontWeight,
+        },
+      }, '*');
+      return;
+    }
+    var img = e.target.closest('img');
+    if (img) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.parent.postMessage({
+        type: 'draftly-click-image',
+        id: img.id || '',
+        src: img.src,
+        bounds: getBounds(img),
+      }, '*');
+    }
+  }, true);
+
+  // Notify parent when the user scrolls so it can clear stale overlay positions.
+  // Use capture:true so this fires for scroll events inside child elements too.
+  document.addEventListener('scroll', function() {
+    window.parent.postMessage({ type: 'draftly-scroll' }, '*');
+  }, { capture: true, passive: true });
+})();
+</script>
+</body> on every template ──── */
+(function () {
+
+  /* ── Lucide icons ─────────────────────────────────────────────────────── */
+  if (window.lucide) lucide.createIcons();
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.lucide) lucide.createIcons();
+  });
+
+  /* ── Hide empty announcement bar ─────────────────────────────────────── */
+  var abar = document.getElementById('announcement-bar');
+  if (abar) {
+    var atext = abar.querySelector('#announcement-text, span');
+    if (!atext || !atext.textContent.trim()) abar.style.display = 'none';
+  }
+
+  /* ── Scroll progress bar ──────────────────────────────────────────────── */
+  var progressBar = document.getElementById('scrollProgressBar');
+  if (progressBar) {
+    window.addEventListener('scroll', function () {
+      var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      progressBar.style.width = Math.min(pct * 100, 100) + '%';
+    }, { passive: true });
+  }
+
+  /* ── Nav scroll effect ────────────────────────────────────────────────── */
+  var nav = document.getElementById('site-nav');
+  if (nav) {
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  }
+
+  /* ── IntersectionObserver scroll reveals ─────────────────────────────── */
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-revealed');
+        revealObserver.unobserve(e.target); // fire once
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ── Counter animation (for stat sections) ───────────────────────────── */
+  function animateCounter(el) {
+    var target = parseFloat(el.dataset.count || el.textContent.replace(/[^0-9.]/g, ''));
+    var suffix = el.dataset.suffix || el.textContent.replace(/[0-9.]/g, '').trim();
+    var duration = 1800;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      var val = target * ease;
+      el.textContent = (val >= 1000 ? (val / 1000).toFixed(1) + 'k' : Math.round(val)) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-count]').forEach(function (el) {
+    counterObserver.observe(el);
+  });
+
+  /* ── GSAP — headline split + scroll-triggered section entrances ───────── */
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (window.SplitText) {
+      gsap.registerPlugin(SplitText);
+      document.querySelectorAll('.hero-headline, .split-headline').forEach(function (el) {
+        var split = new SplitText(el, { type: 'lines' });
+        gsap.from(split.lines, {
+          opacity: 0, y: 50, duration: 1, stagger: 0.1,
+          ease: 'power3.out', delay: 0.2
+        });
+      });
+    }
+
+    /* Parallax on hero background */
+    document.querySelectorAll('.hero-bg').forEach(function (el) {
+      gsap.to(el, {
+        yPercent: 20,
+        ease: 'none',
+        scrollTrigger: { trigger: el.closest('.hero'), scrub: true }
+      });
+    });
+  }
+
+  /* ── Motion.js — spring hovers on cards ──────────────────────────────── */
+  if (window.Motion) {
+    var MA = Motion.animate;
+    document.querySelectorAll(
+      '.glass-card, .card, .feature-card, .pricing-card, .testimonial, .stat-block, .gallery-item'
+    ).forEach(function (card) {
+      card.addEventListener('mouseenter', function () {
+        MA(card, { y: -6, scale: 1.025 }, { type: 'spring', stiffness: 260, damping: 22, mass: 0.8 });
+      });
+      card.addEventListener('mouseleave', function () {
+        MA(card, { y: 0, scale: 1 }, { type: 'spring', stiffness: 300, damping: 30 });
+      });
+    });
+
+    /* Magnetic CTA buttons */
+    document.querySelectorAll('.cta-btn, [data-magnetic]').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        MA(btn, {
+          x: (e.clientX - r.left - r.width / 2) * 0.25,
+          y: (e.clientY - r.top - r.height / 2) * 0.25
+        }, { type: 'spring', stiffness: 200, damping: 20 });
+      });
+      btn.addEventListener('mouseleave', function () {
+        MA(btn, { x: 0, y: 0 }, { type: 'spring', stiffness: 300, damping: 28 });
+      });
+    });
+  }
+
+  /* ── Lead form submission ─────────────────────────────────────────────── */
+  window.submitLeadForm = async function () {
+    var form = document.getElementById('lead-form');
+    var btn  = form ? form.querySelector('.form-submit') : null;
+    if (!form || !btn) return;
+
+    var data = {};
+    form.querySelectorAll('input,textarea,select').forEach(function (el) {
+      if (el.name && el.value) data[el.name] = el.value;
+    });
+
+    /* Merge vertical-specific fields into message */
+    var standardKeys = ['name', 'email', 'phone', 'message'];
+    var extras = Object.keys(data)
+      .filter(function (k) { return standardKeys.indexOf(k) === -1; })
+      .map(function (k) { return k + ': ' + data[k]; })
+      .join('\n');
+    if (extras) data.message = (data.message ? data.message + '\n---\n' : '') + extras;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      var siteId = (document.querySelector('meta[name="draftly-site-id"]') || {}).content || '';
+      await fetch('https://app.draftly.space/api/sites/' + siteId + '/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.assign({}, data, {
+          source: 'contact_form',
+          page: window.location.pathname
+        }))
+      });
+      form.style.display = 'none';
+      var success = document.getElementById('lead-success');
+      if (success) { success.style.display = 'flex'; if (window.lucide) lucide.createIcons(); }
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = btn.dataset.label || 'Send Message';
+    }
+  };
+
+})();
+</script>
+</body>
+</html>
