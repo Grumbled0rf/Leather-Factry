@@ -226,32 +226,39 @@
 
     /* ══ LOADING SCREEN ══ */
     #luxLoader {
-      position: fixed; inset: 0; z-index: 99999;
-      background: #080808;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: fixed !important; inset: 0 !important; z-index: 99999 !important;
+      background: #080808 !important;
+      display: flex !important; flex-direction: column; align-items: center; justify-content: center;
+      width: 100vw !important; height: 100vh !important;
+      margin: 0 !important; padding: 0 !important;
       transition: opacity 0.8s ease, visibility 0.8s;
     }
-    #luxLoader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    #luxLoader.done { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
     .loader-logo {
-      font-family: var(--font-display); font-size: 42px; font-weight: 600;
-      letter-spacing: 0.3em; color: var(--brand-accent);
-      margin-bottom: 40px;
+      font-family: var(--font-display); font-size: 48px; font-weight: 600;
+      letter-spacing: 0.35em; color: var(--brand-accent);
+      margin-bottom: 48px;
       animation: loaderPulse 2s ease-in-out infinite;
     }
     .loader-bar-wrap {
-      width: 200px; height: 1px; background: rgba(201,164,86,0.15); position: relative; overflow: hidden;
+      width: 220px; height: 2px; background: rgba(201,164,86,0.12);
+      position: relative; overflow: hidden; border-radius: 2px;
     }
     .loader-bar-fill {
-      height: 100%; width: 0%; background: var(--brand-accent);
-      transition: width 0.3s ease;
+      height: 100%; width: 0%; background: linear-gradient(90deg, var(--brand-accent), #D4AF6A);
+      border-radius: 2px; transition: width 0.3s ease;
     }
     .loader-text {
-      margin-top: 20px; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-      color: rgba(255,251,243,0.35); font-weight: 400;
+      margin-top: 24px; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,251,243,0.3); font-weight: 400;
+    }
+    .loader-pct {
+      margin-top: 8px; font-family: var(--font-display); font-size: 14px;
+      font-style: italic; color: rgba(201,164,86,0.4); letter-spacing: 0.1em;
     }
     @keyframes loaderPulse {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
     }
 
     /* WhatsApp CSS removed */
@@ -970,32 +977,30 @@ body { background: #080808 !important; }
   <div class="loader-logo">EBL</div>
   <div class="loader-bar-wrap"><div class="loader-bar-fill" id="loaderFill"></div></div>
   <div class="loader-text">Loading experience</div>
+  <div class="loader-pct" id="loaderPct">0%</div>
 </div>
 <script>
 (function() {
   var loader = document.getElementById('luxLoader');
   var fill = document.getElementById('loaderFill');
+  var pctEl = document.getElementById('loaderPct');
   if (!loader) return;
-  // Poll frame loading progress every 100ms
+  var dismissed = false;
+  function dismiss() {
+    if (dismissed) return;
+    dismissed = true;
+    loader.classList.add('done');
+    setTimeout(function() { if (loader.parentNode) loader.parentNode.removeChild(loader); }, 1000);
+  }
   var poll = setInterval(function() {
     var loaded = window.__frameLoadedCount || 0;
-    var pct = Math.min((loaded / 300) * 100, 100);
+    var pct = Math.min(Math.round((loaded / 300) * 100), 100);
     if (fill) fill.style.width = pct + '%';
-    // Dismiss once 20+ frames loaded (enough for smooth hero)
-    if (loaded >= 20) {
-      clearInterval(poll);
-      setTimeout(function() { loader.classList.add('done'); }, 300);
-      setTimeout(function() { if (loader.parentNode) loader.parentNode.removeChild(loader); }, 1200);
-    }
-  }, 100);
-  // Hard fallback — never block longer than 5 seconds
-  setTimeout(function() {
-    clearInterval(poll);
-    if (loader && !loader.classList.contains('done')) {
-      loader.classList.add('done');
-      setTimeout(function() { if (loader.parentNode) loader.parentNode.removeChild(loader); }, 800);
-    }
-  }, 5000);
+    if (pctEl) pctEl.textContent = pct + '%';
+    if (loaded >= 20) { clearInterval(poll); setTimeout(dismiss, 400); }
+  }, 80);
+  // Fallback — never block longer than 5s
+  setTimeout(function() { clearInterval(poll); dismiss(); }, 5000);
 })();
 </script>
 
