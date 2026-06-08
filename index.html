@@ -625,7 +625,7 @@
     #features { background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
     #testimonials { background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
     /* FAQ section removed */
-    #contact { background: rgba(10,10,9,0.7) !important; backdrop-filter: blur(16px) saturate(1.3) !important; -webkit-backdrop-filter: blur(16px) saturate(1.3) !important; padding: 120px 5vw !important; }
+    #contact { background: rgba(10,10,9,0.8) !important; backdrop-filter: blur(20px) saturate(1.3) !important; -webkit-backdrop-filter: blur(20px) saturate(1.3) !important; padding: 120px 5vw !important; }
     #collections { background: rgba(11,11,11,0.5); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
     .lux-marquee { background: rgba(8,8,8,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     .lux-stats { background: rgba(9,9,9,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
@@ -684,7 +684,7 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s ease; }
     .reveal.is-revealed { opacity: 1; transform: translateY(0); }
 
-    .form-section { background: var(--brand-surface); border: 1px solid var(--brand-border); border-radius: 0; padding: 56px; max-width: 680px; margin: 0 auto; }
+    /* form-section styled in premium section above */
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .form-group { display: flex; flex-direction: column; gap: 10px; }
     .form-group.full { grid-column: span 2; }
@@ -1204,7 +1204,7 @@ body { background: #080808 !important; }
       <h2 class="section-title reveal section-headline" style="text-align:center;">Send an <span>Enquiry</span></h2>
       <p class="section-sub reveal" style="margin: 0 auto;">For private viewings, bespoke commissions, corporate programmes or simply a conversation about the craft — we welcome your message.</p>
     </div>
-    <div class="form-section reveal">
+    <div class="form-section">
       <form id="lead-form">
         <div class="form-grid">
           <div class="form-group">
@@ -1251,12 +1251,12 @@ body { background: #080808 !important; }
         <a href="/" class="nav-logo">EBL</a>
         <p>Where Emirati heritage meets enduring craftsmanship.</p>
         <div class="social-links">
-          <a href="https://instagram.com/ebl" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i data-lucide="instagram" width="16" height="16"></i></a>
-          <a href="https://twitter.com/ebl" target="_blank" rel="noopener" class="social-link" aria-label="X/Twitter"><i data-lucide="twitter" width="16" height="16"></i></a>
-          <a href="https://linkedin.com/company/ebl" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin" width="16" height="16"></i></a>
-          <a href="https://facebook.com/ebl" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i data-lucide="facebook" width="16" height="16"></i></a>
-          <a href="https://youtube.com/@ebl" target="_blank" rel="noopener" class="social-link" aria-label="YouTube"><i data-lucide="youtube" width="16" height="16"></i></a>
-          <a href="https://wa.me/97125550188" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><i data-lucide="phone" width="16" height="16"></i></a>
+          <a href="https://instagram.com/ebl" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          <a href="https://twitter.com/ebl" target="_blank" rel="noopener" class="social-link" aria-label="X/Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a>
+          <a href="https://linkedin.com/company/ebl" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://facebook.com/ebl" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://youtube.com/@ebl" target="_blank" rel="noopener" class="social-link" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></a>
+          <a href="https://wa.me/97125550188" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg></a>
         </div>
       </div>
       <div class="footer-col"><h4>Collections</h4><ul><li><a href="#features">Arabic Sandals</a></li><li><a href="#features">Leather Bags</a></li><li><a href="#features">Accessories</a></li><li><a href="#features">Signature Pieces</a></li></ul></div>
