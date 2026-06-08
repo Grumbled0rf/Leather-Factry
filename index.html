@@ -632,8 +632,8 @@
     #about { background: rgba(11,11,11,0.55); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
     #features { background: rgba(11,11,11,0.5); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
     #testimonials { background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
-    #faq { background: rgba(12,12,11,0.5) !important; backdrop-filter: blur(12px) saturate(1.2) !important; -webkit-backdrop-filter: blur(12px) saturate(1.2) !important; }
-    #contact { background: rgba(10,10,9,0.55) !important; backdrop-filter: blur(12px) saturate(1.2) !important; -webkit-backdrop-filter: blur(12px) saturate(1.2) !important; }
+    /* FAQ section removed */
+    #contact { background: rgba(10,10,9,0.7) !important; backdrop-filter: blur(16px) saturate(1.3) !important; -webkit-backdrop-filter: blur(16px) saturate(1.3) !important; padding: 120px 5vw !important; }
     #collections { background: rgba(11,11,11,0.5); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
     .lux-marquee { background: rgba(8,8,8,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     .lux-stats { background: rgba(9,9,9,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
@@ -974,7 +974,6 @@ body { background: #080808 !important; }
       <li><a href="#about">Atelier</a></li>
       <li><a href="#collections">Collections</a></li>
       <li><a href="#testimonials">Patrons</a></li>
-      <li><a href="#faq">Enquiries</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Visit Atelier</a>
@@ -987,7 +986,6 @@ body { background: #080808 !important; }
     <a href="#about">Atelier</a>
     <a href="#collections">Collections</a>
     <a href="#testimonials">Patrons</a>
-    <a href="#faq">Enquiries</a>
     <a href="#contact">Contact</a>
   </div>
 
@@ -1204,68 +1202,6 @@ body { background: #080808 !important; }
       <div class="def-test-stars">★★★★★</div>
       <p class="def-test-quote">"Each piece arrives wrapped in muslin, hand-numbered. The ritual alone tells you what kind of house you are dealing with."</p>
       <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200" alt="Noor Al Qubaisi" loading="lazy" /></div><div><div class="def-test-name">Noor Al Qubaisi</div><div class="def-test-role">Patron, Al Ain</div></div></div>
-    </div>
-  </div>
-</section>
-<section id="faq" style="padding: 100px 5vw;">
-  <style>
-    .def-faq-wrap {
-      max-width: 800px; margin: 0 auto;
-      background: linear-gradient(160deg, rgba(201,164,86,0.08), rgba(20,18,14,0.65), rgba(201,164,86,0.05));
-      border: 1px solid rgba(201,164,86,0.2);
-      border-top: 1px solid rgba(201,164,86,0.35);
-      backdrop-filter: blur(28px) saturate(1.4);
-      -webkit-backdrop-filter: blur(28px) saturate(1.4);
-      padding: 20px 44px;
-      box-shadow: 0 8px 50px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,251,243,0.06), inset 0 0 40px rgba(201,164,86,0.02);
-    }
-    .def-faq-item { border-bottom: 1px solid rgba(201,164,86,0.1); }
-    .def-faq-item:last-child { border-bottom: none; }
-    .def-faq-q { width: 100%; background: none; border: none; color: #FFFFFF; font-family: var(--font-display); font-size: 22px; font-weight: 500; text-align: left; padding: 28px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.3s; letter-spacing: 0.005em; }
-    .def-faq-q:hover { color: var(--brand-accent); }
-    .def-faq-icon { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(201,164,86,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.3s, border-color 0.3s, transform 0.4s; color: var(--brand-accent); backdrop-filter: blur(8px); }
-    .def-faq-item.open .def-faq-icon { background: var(--brand-accent); border-color: var(--brand-accent); color: #0B0B0B; transform: rotate(45deg); }
-    .def-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.45s ease, padding 0.3s; }
-    .def-faq-item.open .def-faq-a { max-height: 400px; }
-    .def-faq-a-inner { padding-bottom: 28px; font-size: 16px; color: rgba(255,251,243,0.9); line-height: 1.9; font-weight: 400; max-width: 92%; }
-  </style>
-  <div style="text-align:center; margin-bottom:64px;">
-    <div class="section-label reveal">Enquiries</div>
-    <h2 class="section-title reveal section-headline" style="text-align:center;">Quiet <span>Questions</span></h2>
-    <p class="section-sub reveal" style="margin: 0 auto;">For matters not addressed here, our atelier concierge is available by appointment. We respond personally to every enquiry.</p>
-  </div>
-  <div class="def-faq-wrap">
-    <div class="def-faq-item reveal">
-      <button class="def-faq-q"><span>What makes camel leather different from other leathers?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
-      <div class="def-faq-a"><div class="def-faq-a-inner">Camel hide possesses a tensile strength roughly 50% greater than cowhide and an utterly distinctive grain — irregular, organic, never repeating. It softens dramatically with age while resisting abrasion, making it ideal for objects intended to outlive their owner.</div></div>
-    </div>
-    <div class="def-faq-item reveal">
-      <button class="def-faq-q"><span>Is your leather ethically sourced?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
-      <div class="def-faq-a"><div class="def-faq-a-inner">Without exception. EBL works exclusively with by-product hides from local Emirati farms — never raised for leather. Our vegetable tanning process produces zero chemical runoff, and every artisan is employed on full-time, fairly compensated terms within the UAE.</div></div>
-    </div>
-    <div class="def-faq-item reveal">
-      <button class="def-faq-q"><span>How long does a bespoke commission take?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
-      <div class="def-faq-a"><div class="def-faq-a-inner">Bespoke pieces require between eight and sixteen weeks depending on complexity. The process begins with a private consultation at our Abu Dhabi atelier or by video, followed by sketches, leather selection, prototyping, and final hand-finishing.</div></div>
-    </div>
-    <div class="def-faq-item reveal">
-      <button class="def-faq-q"><span>Where can I see and handle the collections in person?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
-      <div class="def-faq-a"><div class="def-faq-a-inner">Our boutiques are located at Dalma Mall (Abu Dhabi), Bawadi Mall (Al Ain), and the Sheikh Zayed Grand Mosque Cultural Centre. Private viewings at our atelier may be arranged by appointment.</div></div>
-    </div>
-    <div class="def-faq-item reveal">
-      <button class="def-faq-q"><span>Do you ship internationally?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
-      <div class="def-faq-a"><div class="def-faq-a-inner">Yes. EBL ships worldwide via insured courier, with each piece hand-wrapped in muslin and presented in our signature wooden case. International orders include all duties and arrive within seven to ten working days.</div></div>
-    </div>
-    <div class="def-faq-item reveal">
-      <button class="def-faq-q"><span>How do I care for my EBL piece?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
-      <div class="def-faq-a"><div class="def-faq-a-inner">Each piece arrives with our care guide and a small vial of conditioning balm. We recommend avoiding direct sun exposure, conditioning twice yearly, and returning the piece to our atelier every five years for complimentary restoration.</div></div>
-    </div>
-    <div class="def-faq-item reveal">
-      <button class="def-faq-q"><span>Do you offer corporate gifting and private label?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
-      <div class="def-faq-a"><div class="def-faq-a-inner">We do. EBL works with private offices, government bodies and luxury brands on bespoke gifting programmes, embossed editions and custom collections. Minimum orders begin at twenty pieces.</div></div>
-    </div>
-    <div class="def-faq-item reveal">
-      <button class="def-faq-q"><span>What is your return and lifetime service policy?</span><span class="def-faq-icon"><i data-lucide="plus" width="14" height="14"></i></span></button>
-      <div class="def-faq-a"><div class="def-faq-a-inner">Pieces may be returned within thirty days, unworn and in original condition. More importantly, every EBL object carries a lifetime service covenant — restitching, edge restoration and conditioning, performed by the original artisan whenever possible.</div></div>
     </div>
   </div>
 </section>
