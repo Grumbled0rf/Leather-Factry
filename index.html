@@ -13,6 +13,10 @@
   <meta property="og:url" content="https://ebl.ae" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <!-- motion.js removed — unused, GSAP handles all animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
@@ -1156,7 +1160,7 @@ body { background: #080808 !important; }
   </style>
   <div class="def-about-grid">
     <div class="def-about-img-wrap reveal">
-      <div class="def-about-img"><img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1200" alt="EBL atelier — camel leather craftsmanship" loading="lazy" /></div>
+      <div class="def-about-img"><img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1200" alt="EBL atelier — camel leather craftsmanship" fetchpriority="high" /></div>
       <div class="def-about-badge"><div class="def-about-badge-num">26+</div><div class="def-about-badge-label">Years of Craft</div></div>
     </div>
     <div>
@@ -1192,12 +1196,12 @@ body { background: #080808 !important; }
     <p class="section-sub reveal" style="margin: 0 auto;">Every EBL piece passes through six pairs of hands across as many weeks. A slow grammar of choices — each one quiet, each one consequential.</p>
   </div>
   <div class="def-features-grid">
-    <div class="def-feat-card reveal"><div class="def-feat-icon"><i data-lucide="leaf" width="24" height="24"></i></div><div class="def-feat-title">Hide Selection</div><div class="def-feat-desc">Only the finest by-product hides from local Emirati farms — graded for grain, weight and integrity by our master tanner.</div></div>
-    <div class="def-feat-card reveal" style="transition-delay:0.08s;"><div class="def-feat-icon"><i data-lucide="droplet" width="24" height="24"></i></div><div class="def-feat-title">Vegetable Tanning</div><div class="def-feat-desc">Twelve weeks in pits of bark, sumac and date — a heritage process that yields a leather that warms and deepens with age.</div></div>
-    <div class="def-feat-card reveal" style="transition-delay:0.16s;"><div class="def-feat-icon"><i data-lucide="scissors" width="24" height="24"></i></div><div class="def-feat-title">Hand Cutting</div><div class="def-feat-desc">No die-press, no compromise. Each panel is read for its grain and cut by an artisan who has trained for over a decade.</div></div>
-    <div class="def-feat-card reveal" style="transition-delay:0.24s;"><div class="def-feat-icon"><i data-lucide="sparkles" width="24" height="24"></i></div><div class="def-feat-title">Master Finishing</div><div class="def-feat-desc">Edges painted in seven coats. Saddle-stitched at eight per inch. Burnished by hand until the leather sings.</div></div>
-    <div class="def-feat-card reveal" style="transition-delay:0.32s;"><div class="def-feat-icon"><i data-lucide="shield-check" width="24" height="24"></i></div><div class="def-feat-title">Inspection</div><div class="def-feat-desc">Three independent reviews before a piece leaves the atelier. If a single stitch is uncertain, the piece returns to the bench.</div></div>
-    <div class="def-feat-card reveal" style="transition-delay:0.40s;"><div class="def-feat-icon"><i data-lucide="gem" width="24" height="24"></i></div><div class="def-feat-title">Signature</div><div class="def-feat-desc">Each finished piece is hand-numbered and signed by its maker — a covenant between artisan and owner across the years.</div></div>
+    <div class="def-feat-card"><div class="def-feat-icon"><i data-lucide="leaf" width="24" height="24"></i></div><div class="def-feat-title">Hide Selection</div><div class="def-feat-desc">Only the finest by-product hides from local Emirati farms — graded for grain, weight and integrity by our master tanner.</div></div>
+    <div class="def-feat-card" style="transition-delay:0.08s;"><div class="def-feat-icon"><i data-lucide="droplet" width="24" height="24"></i></div><div class="def-feat-title">Vegetable Tanning</div><div class="def-feat-desc">Twelve weeks in pits of bark, sumac and date — a heritage process that yields a leather that warms and deepens with age.</div></div>
+    <div class="def-feat-card" style="transition-delay:0.16s;"><div class="def-feat-icon"><i data-lucide="scissors" width="24" height="24"></i></div><div class="def-feat-title">Hand Cutting</div><div class="def-feat-desc">No die-press, no compromise. Each panel is read for its grain and cut by an artisan who has trained for over a decade.</div></div>
+    <div class="def-feat-card" style="transition-delay:0.24s;"><div class="def-feat-icon"><i data-lucide="sparkles" width="24" height="24"></i></div><div class="def-feat-title">Master Finishing</div><div class="def-feat-desc">Edges painted in seven coats. Saddle-stitched at eight per inch. Burnished by hand until the leather sings.</div></div>
+    <div class="def-feat-card" style="transition-delay:0.32s;"><div class="def-feat-icon"><i data-lucide="shield-check" width="24" height="24"></i></div><div class="def-feat-title">Inspection</div><div class="def-feat-desc">Three independent reviews before a piece leaves the atelier. If a single stitch is uncertain, the piece returns to the bench.</div></div>
+    <div class="def-feat-card" style="transition-delay:0.40s;"><div class="def-feat-icon"><i data-lucide="gem" width="24" height="24"></i></div><div class="def-feat-title">Signature</div><div class="def-feat-desc">Each finished piece is hand-numbered and signed by its maker — a covenant between artisan and owner across the years.</div></div>
   </div>
 </section>
   <!-- Section: Collections Showcase -->
@@ -1229,22 +1233,22 @@ body { background: #080808 !important; }
       <p class="section-sub reveal" style="margin: 0 auto;">Three families of heirloom camel leather — each drawn from the same sun-cured hides, each shaped for a different chapter of life.</p>
     </div>
     <div class="coll-grid">
-      <div class="coll-card reveal" onclick="openLightbox(0)">
-        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600" alt="EBL Leather Bags" loading="lazy" />
+      <div class="coll-card" onclick="openLightbox(0)">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600" alt="EBL Leather Bags" onerror="this.style.background='rgba(201,164,86,0.1)'" />
         <div class="coll-overlay">
           <div class="coll-tag">Signature</div>
           <div class="coll-name">Leather Bags</div>
         </div>
       </div>
-      <div class="coll-card reveal" style="transition-delay:0.1s;" onclick="openLightbox(1)">
-        <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600" alt="EBL Arabic Sandals" loading="lazy" />
+      <div class="coll-card" style="transition-delay:0.1s;" onclick="openLightbox(1)">
+        <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600" alt="EBL Arabic Sandals" onerror="this.style.background='rgba(201,164,86,0.1)'" />
         <div class="coll-overlay">
           <div class="coll-tag">Heritage</div>
           <div class="coll-name">Na'al Sandals</div>
         </div>
       </div>
-      <div class="coll-card reveal" style="transition-delay:0.2s;" onclick="openLightbox(2)">
-        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600" alt="EBL Accessories" loading="lazy" />
+      <div class="coll-card" style="transition-delay:0.2s;" onclick="openLightbox(2)">
+        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600" alt="EBL Accessories" onerror="this.style.background='rgba(201,164,86,0.1)'" />
         <div class="coll-overlay">
           <div class="coll-tag">Bespoke</div>
           <div class="coll-name">Accessories</div>
@@ -1274,32 +1278,32 @@ body { background: #080808 !important; }
     <p class="section-sub reveal" style="margin: 0 auto;">Collectors, diplomats and quiet connoisseurs — patrons of the house, gathered across two decades.</p>
   </div>
   <div class="def-test-grid">
-    <div class="def-test-card reveal">
+    <div class="def-test-card">
       <div class="def-test-stars">★★★★★</div>
       <p class="def-test-quote">"My EBL satchel has crossed three continents and twelve years. The leather has only become more honest. It is the only bag I will ever need."</p>
       <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Hamad Al Mazrouei" loading="lazy" /></div><div><div class="def-test-name">Hamad Al Mazrouei</div><div class="def-test-role">Collector, Abu Dhabi</div></div></div>
     </div>
-    <div class="def-test-card reveal" style="transition-delay:0.08s;">
+    <div class="def-test-card" style="transition-delay:0.08s;">
       <div class="def-test-stars">★★★★★</div>
       <p class="def-test-quote">"I have visited tanneries in Florence, Kyoto and Marrakesh. EBL stands quietly among them — and the camel leather is unlike anything I have held before."</p>
       <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200" alt="Isabelle Moreau" loading="lazy" /></div><div><div class="def-test-name">Isabelle Moreau</div><div class="def-test-role">Editor, Paris</div></div></div>
     </div>
-    <div class="def-test-card reveal" style="transition-delay:0.16s;">
+    <div class="def-test-card" style="transition-delay:0.16s;">
       <div class="def-test-stars">★★★★★</div>
       <p class="def-test-quote">"We commissioned EBL for a private gifting programme. The atelier's discretion, patience and finish were extraordinary. They understand bespoke."</p>
       <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200" alt="Khalid Al Suwaidi" loading="lazy" /></div><div><div class="def-test-name">Khalid Al Suwaidi</div><div class="def-test-role">Private Office, Dubai</div></div></div>
     </div>
-    <div class="def-test-card reveal" style="transition-delay:0.24s;">
+    <div class="def-test-card" style="transition-delay:0.24s;">
       <div class="def-test-stars">★★★★★</div>
       <p class="def-test-quote">"There is a softness to the grain that other leathers cannot reach. I purchased my first pair of Na'al six years ago and have since acquired four more."</p>
       <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200" alt="Layla Al Hashimi" loading="lazy" /></div><div><div class="def-test-name">Layla Al Hashimi</div><div class="def-test-role">Architect, Sharjah</div></div></div>
     </div>
-    <div class="def-test-card reveal" style="transition-delay:0.32s;">
+    <div class="def-test-card" style="transition-delay:0.32s;">
       <div class="def-test-stars">★★★★★</div>
       <p class="def-test-quote">"To watch the artisans work is to understand why this is not a product but a small museum object. Time, made wearable."</p>
       <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200" alt="James Whitfield" loading="lazy" /></div><div><div class="def-test-name">James Whitfield</div><div class="def-test-role">Curator, London</div></div></div>
     </div>
-    <div class="def-test-card reveal" style="transition-delay:0.40s;">
+    <div class="def-test-card" style="transition-delay:0.40s;">
       <div class="def-test-stars">★★★★★</div>
       <p class="def-test-quote">"Each piece arrives wrapped in muslin, hand-numbered. The ritual alone tells you what kind of house you are dealing with."</p>
       <div class="def-test-author"><div class="def-test-avatar"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200" alt="Noor Al Qubaisi" loading="lazy" /></div><div><div class="def-test-name">Noor Al Qubaisi</div><div class="def-test-role">Patron, Al Ain</div></div></div>
@@ -1689,45 +1693,7 @@ body { background: #080808 !important; }
   }
 })();
 </script>
-<script data-draftly-io-reveal="1">
-(function() {
-  // Pattern 4b — IntersectionObserver entrance for sections and cards
-  // Adds .is-revealed when element enters viewport
-  var style = document.createElement('style');
-  style.textContent = [
-    '.reveal-on-scroll{opacity:0;transform:translateY(36px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1);}',
-    '.reveal-on-scroll.is-revealed{opacity:1;transform:none;}',
-    '@media(prefers-reduced-motion:reduce){.reveal-on-scroll{opacity:1;transform:none;transition:none;}}'
-  ].join('');
-  document.head.appendChild(style);
-
-  function draftlyIOReveal() {
-    if (!window.IntersectionObserver) return;
-    var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-revealed');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
-
-    // Auto-wire all major sections and cards that don't already have is-revealed
-    document.querySelectorAll('section, .card, .feature-card, .bento-tile, .stat-block, .testimonial, .pricing-card').forEach(function(el) {
-      if (!el.classList.contains('is-revealed') && !el.classList.contains('no-reveal')) {
-        el.classList.add('reveal-on-scroll');
-        obs.observe(el);
-      }
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', draftlyIOReveal);
-  } else {
-    requestAnimationFrame(draftlyIOReveal);
-  }
-})();
-</script>
+<!-- draftly-io-reveal removed — luxury engine handles all reveals -->
 <script data-draftly-hamburger-js="1">
 (function(){
   function initHamburger() {
