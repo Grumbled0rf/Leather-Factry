@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="draftly-site-id" content="proj_1780902198427">
-  <title>EBL — Your home, intelligent.</title>
+  <title>EBL — The UAE's Camel Leather House</title>
   <meta name="description" content="EBL crafts heirloom camel leather goods in the United Arab Emirates — 26+ years of heritage, hand-finished by master artisans, made from 100% natural by-product hides." />
   <link rel="canonical" href="https://ebl.ae" />
   <meta property="og:title" content="EBL — The UAE's Camel Leather House" />
@@ -657,7 +657,7 @@
       }
     }
 
-    /* (announcement bar styles moved to premium section) */
+    /* announcement bar styles in premium section above */
 
     nav { position: relative; top: auto; z-index: 100; background: rgba(11,11,11,0.92); backdrop-filter: blur(24px); border-bottom: 1px solid var(--brand-border); padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; height: 68px; }
     .nav-logo { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: 0.18em; color: var(--brand-text); text-decoration: none; }
@@ -747,23 +747,9 @@ i[data-lucide]{display:inline-flex!important;align-items:center!important;justif
 i[data-lucide] svg{display:block}
 </style>
 
-  <!-- Draftly SEO: Open Graph + Twitter Card [data-draftly-seo] -->
-  <meta name="description" content="Your home, intelligent." />
+  <!-- SEO (correct tags already in <head>, duplicates removed) -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:title" content="EBL — Your home, intelligent." />
-  <meta property="og:description" content="Your home, intelligent." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="EBL" />
-  <meta name="twitter:description" content="Your home, intelligent." />
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "EBL",
-  "description": "Your home, intelligent."
-}
-  </script>
 <style data-draftly-safety-css="1">
   /* Draftly safety layer — keeps nav clickable + overlays transparent to input */
   #overlay, #bgWrap, #bgCanvas, #scrollProgressBar,
@@ -985,12 +971,12 @@ i[data-lucide] svg{display:block}
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Visit Atelier</a>
-    <button class="nav-hamburger" id="hamburger"><i data-lucide="menu" width="24" height="24"></i></button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><i data-lucide="menu" width="24" height="24"></i></button>
   </nav>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" id="menuClose"><i data-lucide="x" width="26" height="26"></i></button>
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu"><i data-lucide="x" width="26" height="26"></i></button>
     <a href="#about">Atelier</a>
     <a href="#collections">Collections</a>
     <a href="#testimonials">Patrons</a>
@@ -1069,7 +1055,7 @@ i[data-lucide] svg{display:block}
     </div>
     <div>
       <div class="def-about-label reveal">Our Story</div>
-      <h2 class="def-about-heading reveal section-headline">A house built from <em style="color:var(--brand-accent);">desert and patience.</em></h2>
+      <h2 class="def-about-heading reveal section-headline">A house built from <span>desert and patience.</span></h2>
       <p class="def-about-body reveal">EBL began in a single workshop on the edge of the Liwa desert — one master, three apprentices, and a conviction that the camel hide, long overlooked, deserved to stand among the world's great leathers. Today our artisans honour that first stitch in every piece they finish.</p>
       <p class="def-about-body reveal">We tan slowly with vegetable matter. We cut by hand. We refuse the shortcut. The result is not fashion. It is inheritance — leather that softens with each decade, carrying the hand of its maker and the warmth of the country that raised it.</p>
       <div class="def-about-values reveal">
@@ -1302,15 +1288,6 @@ i[data-lucide] svg{display:block}
       <div class="def-faq-a"><div class="def-faq-a-inner">Pieces may be returned within thirty days, unworn and in original condition. More importantly, every EBL object carries a lifetime service covenant — restitching, edge restoration and conditioning, performed by the original artisan whenever possible.</div></div>
     </div>
   </div>
-  <script>
-    function toggleFaq(btn) {
-      const item = btn.closest('.def-faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.def-faq-item.open').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-      if (typeof lucide !== 'undefined') lucide.createIcons();
-    }
-  </script>
 </section>
 
   <!-- Contact / Lead Form -->
@@ -1351,7 +1328,7 @@ i[data-lucide] svg{display:block}
             <textarea name="message" placeholder="Tell us how we may be of service..." required></textarea>
           </div>
         </div>
-        <button type="button" class="form-submit">Send Enquiry</button>
+        <button type="submit" class="form-submit">Send Enquiry</button>
         <p class="form-note">Our atelier responds personally within 24 hours.</p>
       </form>
       <div id="lead-success" style="display:none; flex-direction:column; align-items:center; gap:16px; padding:40px 0; text-align:center;">
@@ -1378,7 +1355,7 @@ i[data-lucide] svg{display:block}
       <div class="footer-col"><h4>House</h4><ul><li><a href="#about">Our Story</a></li><li><a href="#features">The Craft</a></li><li><a href="#">Boutiques</a></li><li><a href="#contact">Bespoke</a></li></ul></div>
       <div class="footer-col"><h4>Support</h4><ul><li><a href="#contact">Contact</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Care Guide</a></li><li><a href="#">Privacy</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><span>© 2025 EBL. All rights reserved.</span><span>Abu Dhabi, United Arab Emirates</span></div>
+    <div class="footer-bottom"><span>© 2026 EBL. All rights reserved.</span><span>Abu Dhabi, United Arab Emirates</span></div>
   </footer>
 
   <!-- Solid cap to block the fixed canvas below footer -->
@@ -1399,9 +1376,6 @@ i[data-lucide] svg{display:block}
     document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
     const revealObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-revealed'); }); }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
-    document.getElementById('menuClose').addEventListener('click', closeMobileMenu);
-    function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
     async function submitLeadForm() {
       var form = document.getElementById('lead-form');
       var btn = form ? form.querySelector('button[onclick], .form-submit, button[type="button"]') : null;
