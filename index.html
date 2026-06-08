@@ -171,26 +171,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ══ SECTION DIVIDER LINES ══ */
-    .lux-divider { width: 100%; height: 1px; position: relative; overflow: hidden; margin: 0; }
-    .lux-divider::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
-      animation: none;
-    }
-    .lux-divider.animate::after {
-      animation: dividerSweep 1.5s cubic-bezier(0.16,1,0.3,1) forwards;
-    }
-    @keyframes dividerSweep {
-      to { left: 100%; }
-    }
-
-    /* ══ FAQ SMOOTH OPEN ══ */
-    .def-faq-q { transition: color 0.3s, letter-spacing 0.5s; }
-    .def-faq-item.open .def-faq-q { letter-spacing: 0.02em; }
+    /* divider + FAQ CSS removed — sections deleted */
 
     /* ══ COUNTER ANIMATION ══ */
     .def-about-badge-num { transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
@@ -273,24 +254,7 @@
       50% { opacity: 1; }
     }
 
-    /* ══ WHATSAPP FLOATING BUTTON ══ */
-    .lux-whatsapp {
-      position: fixed; bottom: 28px; right: 28px; z-index: 9000;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25D366; border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.3), 0 0 0 0 rgba(37,211,102,0.4);
-      animation: whatsappPulse 3s ease-in-out infinite;
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-decoration: none;
-    }
-    .lux-whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.4); }
-    .lux-whatsapp svg { width: 28px; height: 28px; fill: #FFFFFF; }
-    @keyframes whatsappPulse {
-      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.3), 0 0 0 0 rgba(37,211,102,0.4); }
-      50% { box-shadow: 0 4px 20px rgba(37,211,102,0.3), 0 0 0 12px rgba(37,211,102,0); }
-    }
-    @media (max-width: 900px) { .lux-whatsapp { bottom: 80px; right: 16px; width: 50px; height: 50px; } .lux-whatsapp svg { width: 24px; height: 24px; } }
+    /* WhatsApp CSS removed */
 
     /* ══ PRODUCT LIGHTBOX ══ */
     .lux-lightbox {
@@ -501,49 +465,7 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* ── Stats Band ── */
-    .lux-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-top: 1px solid rgba(184,147,77,0.12);
-      border-bottom: 1px solid rgba(184,147,77,0.12);
-      position: relative;
-      z-index: 1;
-      background: rgba(11,11,11,0.4);
-    }
-    .lux-stat {
-      text-align: center;
-      padding: 56px 24px;
-      border-right: 1px solid rgba(201,164,86,0.1);
-      position: relative;
-      transition: background 0.5s;
-    }
-    .lux-stat:hover {
-      background: rgba(201,164,86,0.03);
-    }
-    .lux-stat:last-child { border-right: none; }
-    .lux-stat-num {
-      font-family: var(--font-display);
-      font-size: clamp(40px, 5vw, 64px);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--brand-accent);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-    .lux-stat-label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,251,243,0.7);
-    }
-    @media (max-width: 700px) {
-      .lux-stats { grid-template-columns: 1fr 1fr; }
-      .lux-stat:nth-child(2) { border-right: none; }
-      .lux-stat { padding: 36px 16px; }
-    }
+    /* stats band CSS removed — section deleted */
 
     /* ── Premium About Upgrade ── */
     .def-about-img {
@@ -726,14 +648,14 @@
     #about { background: rgba(11,11,11,0.55); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
     #features { background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
     #testimonials { background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
-    /* FAQ section removed */
+    /* removed sections cleaned */
     #contact { background: rgba(10,10,9,0.8) !important; backdrop-filter: blur(10px) saturate(1.1) !important; -webkit-backdrop-filter: blur(10px) saturate(1.1) !important; padding: 120px 5vw !important; }
     #collections { background: rgba(11,11,11,0.5); backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2); }
     .lux-marquee { background: rgba(8,8,8,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
-    .lux-stats { background: rgba(9,9,9,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    /* stats bg removed */
 
     /* ── Gold accent line at section top ── */
-    #about::before, #features::before, #testimonials::before, #faq::before, #contact::before, #collections::before {
+    #about::before, #features::before, #testimonials::before, #contact::before, #collections::before {
       content: '';
       position: absolute;
       top: 0; left: 50%;
@@ -741,7 +663,7 @@
       width: 60px; height: 1px;
       background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
     }
-    #about, #features, #testimonials, #faq, #contact, #collections { position: relative; }
+    #about, #features, #testimonials, #contact, #collections { position: relative; }
 
     /* ── Mobile pill nav ── */
     @media (max-width: 900px) {
@@ -1182,8 +1104,7 @@ body { background: #080808 !important; }
 <section id="features" style="padding: 100px 5vw;">
   <style>
     .def-features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .def-feat-card { background: rgba(184,147,77,0.04); border: 1px solid rgba(184,147,77,0.18); border-radius: 0; padding: 40px 32px; transition: border-color 0.5s, transform 0.5s, background 0.5s; }
-    .def-feat-card:hover { border-color: rgba(184,147,77,0.5); background: rgba(184,147,77,0.07); transform: translateY(-4px); }
+    /* feat-card base styles in premium section above */
     .def-feat-icon { width: 54px; height: 54px; background: linear-gradient(135deg, rgba(201,164,86,0.12), rgba(201,164,86,0.04)); border: 1px solid rgba(201,164,86,0.25); border-top-color: rgba(201,164,86,0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--brand-accent); margin-bottom: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,251,243,0.06); }
     .def-feat-title { font-family: var(--font-display); font-size: 24px; font-weight: 500; margin-bottom: 14px; letter-spacing: 0.005em; }
     .def-feat-desc { font-size: 15px; color: rgba(255,251,243,0.88); line-height: 1.85; font-weight: 400; }
@@ -1390,7 +1311,7 @@ body { background: #080808 !important; }
       </div>
       <div class="footer-col"><h4>Collections</h4><ul><li><a href="#features">Arabic Sandals</a></li><li><a href="#features">Leather Bags</a></li><li><a href="#features">Accessories</a></li><li><a href="#features">Signature Pieces</a></li></ul></div>
       <div class="footer-col"><h4>House</h4><ul><li><a href="#about">Our Story</a></li><li><a href="#features">The Craft</a></li><li><a href="#">Boutiques</a></li><li><a href="#contact">Bespoke</a></li></ul></div>
-      <div class="footer-col"><h4>Support</h4><ul><li><a href="#contact">Contact</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Care Guide</a></li><li><a href="#">Privacy</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="#contact">Contact</a></li><li><a href="#contact">Enquiry</a></li><li><a href="#">Care Guide</a></li><li><a href="#">Privacy</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 EBL. All rights reserved.</span><span>Abu Dhabi, United Arab Emirates</span></div>
   </footer>
@@ -1409,31 +1330,7 @@ body { background: #080808 !important; }
     document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
     const revealObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-revealed'); }); }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-    async function submitLeadForm() {
-      var form = document.getElementById('lead-form');
-      var btn = form ? form.querySelector('button[onclick], .form-submit, button[type="button"]') : null;
-      if (!form || !btn) return;
-      var data = {};
-      form.querySelectorAll('input,textarea,select').forEach(function(el) { if (el.name && el.value) data[el.name] = el.value; });
-      var standardKeys = ['name','email','phone','message'];
-      var extras = Object.keys(data).filter(function(k){ return standardKeys.indexOf(k)===-1; }).map(function(k){ return k+': '+data[k]; }).join('\n');
-      if (extras) data.message = (data.message ? data.message + '\n---\n' : '') + extras;
-      btn.disabled = true; btn.textContent = 'Sending...';
-      try {
-        var siteId = (document.querySelector('meta[name="draftly-site-id"]') || {}).content || '';
-        await fetch('https://draftly.space/api/sites/' + siteId + '/leads', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(Object.assign({}, data, { source: 'contact_form', page: window.location.pathname }))
-        });
-        form.style.display = 'none';
-        var s = document.getElementById('lead-success');
-        if (s) { s.style.display = 'flex'; if (window.lucide) lucide.createIcons(); }
-      } catch(e) {
-        btn.disabled = false;
-        btn.textContent = 'Send Enquiry';
-      }
-    }
+    /* orphaned submitLeadForm removed — working version in separate script block */
   </script>
 
 
@@ -1950,44 +1847,7 @@ body { background: #080808 !important; }
     obs.observe(img);
   })();
 
-  // ── Section Dividers ──
-  (function() {
-    if (prefersReduced) return;
-    var dividers = document.querySelectorAll('.lux-divider');
-    if (!dividers.length) return;
-    var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('animate'); obs.unobserve(e.target); } });
-    }, { threshold: 0.5 });
-    dividers.forEach(function(d) { obs.observe(d); });
-  })();
-
-  // ── Stats Band Counter Animation ──
-  (function() {
-    if (prefersReduced) return;
-    var statNums = document.querySelectorAll('.lux-stat-num[data-count]');
-    if (!statNums.length) return;
-    var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          var el = e.target;
-          var target = parseInt(el.getAttribute('data-count'), 10);
-          var suffix = target > 10 ? '+' : '';
-          var duration = 2200;
-          var startTime = null;
-          function step(ts) {
-            if (!startTime) startTime = ts;
-            var progress = Math.min((ts - startTime) / duration, 1);
-            var eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.round(eased * target) + suffix;
-            if (progress < 1) requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
-          obs.unobserve(el);
-        }
-      });
-    }, { threshold: 0.4 });
-    statNums.forEach(function(el) { obs.observe(el); });
-  })();
+  /* dividers + stats counter JS removed — sections deleted */
 
   // ── About Badge Counter ──
   (function() {
@@ -2031,22 +1891,10 @@ body { background: #080808 !important; }
         y: 50, opacity: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out'
       });
 
-      // FAQ items
-      gsap.from('.def-faq-item', {
-        scrollTrigger: { trigger: '.def-faq-wrap', start: 'top 82%' },
-        x: -30, opacity: 0, duration: 0.6, stagger: 0.06, ease: 'power2.out'
-      });
-
       // About values
       gsap.from('.def-about-value', {
         scrollTrigger: { trigger: '.def-about-values', start: 'top 85%' },
         y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out'
-      });
-
-      // Stats band
-      gsap.from('.lux-stat', {
-        scrollTrigger: { trigger: '.lux-stats', start: 'top 85%' },
-        y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out'
       });
 
       // Contact form
@@ -2128,16 +1976,7 @@ body { background: #080808 !important; }
     });
   });
 
-  // ── FAQ click handler ──
-  document.addEventListener('click', function(e) {
-    var btn = e.target.closest('.def-faq-q');
-    if (!btn) return;
-    var item = btn.closest('.def-faq-item');
-    if (!item) return;
-    var isOpen = item.classList.contains('open');
-    document.querySelectorAll('.def-faq-item.open').forEach(function(el) { el.classList.remove('open'); });
-    if (!isOpen) item.classList.add('open');
-  });
+  /* FAQ click handler removed — section deleted */
 })();
 </script>
 <script data-draftly-edit-interceptor="1">
