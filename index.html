@@ -582,7 +582,7 @@
       margin-top: 20px;
     }
 
-    /* ── Footer — solid, covers canvas, no scroll past it ── */
+    /* ── Footer — solid black, blocks fixed canvas completely ── */
     footer {
       background: #080808;
       border-top: 1px solid rgba(201,164,86,0.2);
@@ -590,13 +590,15 @@
       position: relative;
       z-index: 10;
     }
-    /* Block to cover fixed canvas below footer */
-    .lux-footer-cap {
+    /* Ensure the footer is the last visible thing — black below */
+    footer::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      bottom: -100vh;
       height: 100vh;
       background: #080808;
-      position: relative;
       z-index: 10;
-      display: none;
     }
     .footer-brand .nav-logo {
       font-size: 28px;
@@ -928,6 +930,11 @@ i[data-lucide] svg{display:block}
       top: clamp(8px, 1.5vh, 14px) !important;
     }
   }
+</style>
+<style id="footer-scroll-fix">
+/* Override Draftly transparent backgrounds — stop video showing below footer */
+html { background: #080808 !important; }
+body { background: #080808 !important; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
 <script data-draftly-register-plugins="1">
@@ -1346,10 +1353,6 @@ i[data-lucide] svg{display:block}
     </div>
     <div class="footer-bottom"><span>© 2026 EBL. All rights reserved.</span><span>Abu Dhabi, United Arab Emirates</span></div>
   </footer>
-
-  <!-- Solid cap to block the fixed canvas below footer -->
-  <div id="footerCap" style="background:#080808;position:relative;z-index:10;height:2px;"></div>
-
   <div class="mobile-cta-bar">
     <a href="#contact" class="btn-primary">Send Enquiry</a>
   </div>
