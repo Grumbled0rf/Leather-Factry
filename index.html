@@ -1154,21 +1154,21 @@ body { background: #080808 !important; }
       <p class="section-sub reveal" style="margin: 0 auto;">Three families of heirloom camel leather — each drawn from the same sun-cured hides, each shaped for a different chapter of life.</p>
     </div>
     <div class="coll-grid">
-      <div class="coll-card" onclick="openLightbox(0)">
+      <div class="coll-card" onclick="openLightbox(0)" tabindex="0" role="button" aria-label="View Leather Bags collection">
         <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600" alt="EBL Leather Bags" onerror="this.style.background='rgba(201,164,86,0.1)'" />
         <div class="coll-overlay">
           <div class="coll-tag">Signature</div>
           <div class="coll-name">Leather Bags</div>
         </div>
       </div>
-      <div class="coll-card" style="transition-delay:0.1s;" onclick="openLightbox(1)">
+      <div class="coll-card" style="transition-delay:0.1s;" onclick="openLightbox(1)" tabindex="0" role="button" aria-label="View Na'al Sandals collection">
         <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600" alt="EBL Arabic Sandals" onerror="this.style.background='rgba(201,164,86,0.1)'" />
         <div class="coll-overlay">
           <div class="coll-tag">Heritage</div>
           <div class="coll-name">Na'al Sandals</div>
         </div>
       </div>
-      <div class="coll-card" style="transition-delay:0.2s;" onclick="openLightbox(2)">
+      <div class="coll-card" style="transition-delay:0.2s;" onclick="openLightbox(2)" tabindex="0" role="button" aria-label="View Accessories collection">
         <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600" alt="EBL Accessories" onerror="this.style.background='rgba(201,164,86,0.1)'" />
         <div class="coll-overlay">
           <div class="coll-tag">Bespoke</div>
@@ -1357,8 +1357,8 @@ body { background: #080808 !important; }
 
   function framePath(i){ return 'frames-jpg/frame_' + String(i+1).padStart(6,'0') + '.jpg'; }
 
-  const loaderEl = document.getElementById('loader');
-  const barEl = document.getElementById('loader-bar');
+  const loaderEl = document.getElementById('luxLoader');
+  const barEl = document.getElementById('loaderFill');
 
   function onFrameLoad(){ loaded++; window.__frameLoadedCount = loaded; if(barEl) barEl.style.width = (loaded/TOTAL_FRAMES*100)+'%'; if(loaded >= TOTAL_FRAMES){ isReady = true; if(loaderEl) loaderEl.style.display='none'; } }
 
@@ -2199,6 +2199,11 @@ function closeLightbox() {
 }
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeLightbox();
+  // Keyboard support for collection cards
+  if (e.key === 'Enter' || e.key === ' ') {
+    var card = e.target.closest('.coll-card');
+    if (card) { e.preventDefault(); card.click(); }
+  }
 });
 document.getElementById('luxLightbox').addEventListener('click', function(e) {
   if (e.target === this) closeLightbox();
