@@ -590,16 +590,8 @@
       position: relative;
       z-index: 10;
     }
-    /* Ensure the footer is the last visible thing — black below */
-    footer::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      bottom: -100vh;
-      height: 100vh;
-      background: #080808;
-      z-index: 10;
-    }
+    /* Footer bottom padding absorbs any remaining space */
+    footer { padding-bottom: 48px; overflow: hidden; }
     .footer-brand .nav-logo {
       font-size: 28px;
     }
@@ -1259,10 +1251,12 @@ body { background: #080808 !important; }
         <a href="/" class="nav-logo">EBL</a>
         <p>Where Emirati heritage meets enduring craftsmanship.</p>
         <div class="social-links">
-          <a href="#" class="social-link"><i data-lucide="instagram" width="16" height="16"></i></a>
-          <a href="#" class="social-link"><i data-lucide="twitter" width="16" height="16"></i></a>
-          <a href="#" class="social-link"><i data-lucide="linkedin" width="16" height="16"></i></a>
-          <a href="#" class="social-link"><i data-lucide="facebook" width="16" height="16"></i></a>
+          <a href="https://instagram.com/ebl" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i data-lucide="instagram" width="16" height="16"></i></a>
+          <a href="https://twitter.com/ebl" target="_blank" rel="noopener" class="social-link" aria-label="X/Twitter"><i data-lucide="twitter" width="16" height="16"></i></a>
+          <a href="https://linkedin.com/company/ebl" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin" width="16" height="16"></i></a>
+          <a href="https://facebook.com/ebl" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i data-lucide="facebook" width="16" height="16"></i></a>
+          <a href="https://youtube.com/@ebl" target="_blank" rel="noopener" class="social-link" aria-label="YouTube"><i data-lucide="youtube" width="16" height="16"></i></a>
+          <a href="https://wa.me/97125550188" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><i data-lucide="phone" width="16" height="16"></i></a>
         </div>
       </div>
       <div class="footer-col"><h4>Collections</h4><ul><li><a href="#features">Arabic Sandals</a></li><li><a href="#features">Leather Bags</a></li><li><a href="#features">Accessories</a></li><li><a href="#features">Signature Pieces</a></li></ul></div>
