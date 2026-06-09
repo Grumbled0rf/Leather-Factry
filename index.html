@@ -1362,7 +1362,72 @@ body { background: #080808 !important; }
     document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
     const revealObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-revealed'); }); }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-    /* orphaned submitLeadForm removed — working version in separate script block */
+  </script>
+  <script>
+  /* ── CMS Content Loader — reads from admin portal localStorage ── */
+  (function() {
+    try {
+      var data = JSON.parse(localStorage.getItem('ebl_content'));
+      if (!data) return;
+      function setText(sel, val) { var el = document.querySelector(sel); if (el && val) el.textContent = val; }
+      function setHTML(sel, val) { var el = document.querySelector(sel); if (el && val) el.innerHTML = val; }
+      function setAttr(sel, attr, val) { var el = document.querySelector(sel); if (el && val) el.setAttribute(attr, val); }
+
+      // Hero
+      if (data.heroH1) { var h1 = document.querySelector('.hero h1'); if (h1) h1.innerHTML = data.heroH1.replace(/of the Emirates/g, '<span>of the Emirates.</span>'); }
+      if (data.heroSub) setText('.hero-sub', data.heroSub);
+      if (data.heroBadge) { var badge = document.querySelector('.hero-badge'); if (badge) badge.lastChild.textContent = ' ' + data.heroBadge; }
+      if (data.announcement) { var abar = document.getElementById('announcement-bar'); if (abar) abar.innerHTML = data.announcement; }
+      if (data.heroBtnPrimary) { var btn = document.querySelector('.hero-ctas .btn-primary'); if (btn) btn.childNodes[0].textContent = data.heroBtnPrimary + ' '; }
+      if (data.heroBtnGhost) setText('.hero-ctas .btn-ghost', data.heroBtnGhost);
+
+      // About
+      var aboutLabels = document.querySelectorAll('.section-label');
+      var aboutTitles = document.querySelectorAll('.section-title');
+      if (data.aboutLabel && aboutLabels[0]) aboutLabels[0].textContent = data.aboutLabel;
+      if (data.aboutHeading) { var ah = document.querySelector('.def-about-heading'); if (ah) ah.innerHTML = data.aboutHeading; }
+      var aboutBodies = document.querySelectorAll('.def-about-body');
+      if (data.aboutBody1 && aboutBodies[0]) aboutBodies[0].textContent = data.aboutBody1;
+      if (data.aboutBody2 && aboutBodies[1]) aboutBodies[1].textContent = data.aboutBody2;
+      if (data.aboutImg) setAttr('.def-about-img img', 'src', data.aboutImg);
+
+      // Collections
+      if (data.collections && data.collections.length) {
+        var cards = document.querySelectorAll('.coll-card');
+        data.collections.forEach(function(item, i) {
+          if (!cards[i]) return;
+          if (item.name) { var n = cards[i].querySelector('.coll-name'); if (n) n.textContent = item.name; }
+          if (item.tag) { var t = cards[i].querySelector('.coll-tag'); if (t) t.textContent = item.tag; }
+          if (item.img) { var img = cards[i].querySelector('img'); if (img) img.src = item.img; }
+        });
+        // Update lightbox data
+        if (window.luxProducts) {
+          data.collections.forEach(function(item, i) {
+            if (luxProducts[i]) {
+              if (item.name) luxProducts[i].name = item.name;
+              if (item.tag) luxProducts[i].tag = item.tag;
+              if (item.img) luxProducts[i].img = item.img;
+              if (item.desc) luxProducts[i].desc = item.desc;
+              if (item.price) luxProducts[i].price = item.price;
+            }
+          });
+        }
+      }
+
+      // Contact
+      if (data.contactDesc) { var cd = document.querySelector('#contact .section-sub'); if (cd) cd.textContent = data.contactDesc; }
+
+      // Footer
+      if (data.footerTagline) { var ft = document.querySelector('.footer-brand p'); if (ft) ft.textContent = data.footerTagline; }
+      if (data.copyright) { var cr = document.querySelector('.footer-bottom span'); if (cr) cr.textContent = data.copyright; }
+
+      // Social links
+      var socials = document.querySelectorAll('.social-link');
+      var urls = [data.socialInsta, data.socialTwitter, data.socialLinkedin, data.socialFacebook, data.socialYoutube];
+      socials.forEach(function(link, i) { if (urls[i]) link.href = urls[i]; });
+      if (data.socialWhatsapp && socials[5]) socials[5].href = 'https://wa.me/' + data.socialWhatsapp;
+    } catch(e) { /* silently fail if no CMS data */ }
+  })();
   </script>
 
 
